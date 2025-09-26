@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Krist E-Commerce | Home Page</title>
+</head>
+<body>
+
+    <header>
+        <div id="top-head" class="top-head p-0" data-aos="zoom-in-up">
+            <div class="row pt-2 pb-2 m-0">
+                <div class="col-md-8 col-11 p-0 pe-md-5">
+                    <div class="mid-head d-flex justify-content-md-end justify-content-start ps-md-0 ps-3 align-items-center gap-2">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.0181 14.8356L20.7727 15.5444H20.7727L21.0181 14.8356ZM21.0181 9.16437L21.2635 9.8731V9.8731L21.0181 9.16437ZM2.98189 14.8356L3.22727 15.5444H3.22727L2.98189 14.8356ZM2.98189 9.16437L2.73652 9.8731L2.73652 9.8731L2.98189 9.16437ZM15.5303 9.53033C15.8232 9.23744 15.8232 8.76256 15.5303 8.46967C15.2374 8.17678 14.7626 8.17678 14.4697 8.46967L15.5303 9.53033ZM8.46967 14.4697C8.17678 14.7626 8.17678 15.2374 8.46967 15.5303C8.76256 15.8232 9.23744 15.8232 9.53033 15.5303L8.46967 14.4697ZM6 20.25C4.20507 20.25 2.75 18.7949 2.75 17H1.25C1.25 19.6234 3.37665 21.75 6 21.75V20.25ZM21.25 17C21.25 18.7949 19.7949 20.25 18 20.25V21.75C20.6234 21.75 22.75 19.6234 22.75 17H21.25ZM18 3.75C19.7949 3.75 21.25 5.20507 21.25 7H22.75C22.75 4.37665 20.6234 2.25 18 2.25V3.75ZM6 2.25C3.37665 2.25 1.25 4.37665 1.25 7H2.75C2.75 5.20507 4.20507 3.75 6 3.75V2.25ZM21.2635 14.1269C20.3815 13.8216 19.75 12.9836 19.75 12H18.25C18.25 13.6424 19.3054 15.0363 20.7727 15.5444L21.2635 14.1269ZM19.75 12C19.75 11.0164 20.3815 10.1784 21.2635 9.8731L20.7727 8.45565C19.3054 8.96367 18.25 10.3576 18.25 12H19.75ZM4.25 12C4.25 12.9836 3.61845 13.8216 2.73652 14.1269L3.22727 15.5444C4.69461 15.0363 5.75 13.6424 5.75 12H4.25ZM2.73652 9.8731C3.61845 10.1784 4.25 11.0164 4.25 12H5.75C5.75 10.3576 4.69462 8.96367 3.22727 8.45565L2.73652 9.8731ZM22.75 8V7H21.25V8H22.75ZM21.25 16V17H22.75V16H21.25ZM1.25 16V17H2.75V16H1.25ZM2.75 8V7H1.25V8H2.75ZM18 20.25H6V21.75H18V20.25ZM18 2.25H6V3.75H18V2.25ZM2.73652 14.1269C2.05785 14.3619 1.25 14.9975 1.25 16H2.75C2.75 15.9441 2.77081 15.8708 2.85172 15.7813C2.9366 15.6873 3.06974 15.5989 3.22727 15.5444L2.73652 14.1269ZM21.2635 9.8731C21.9422 9.63813 22.75 9.00246 22.75 8H21.25C21.25 8.05587 21.2292 8.12917 21.1483 8.21871C21.0634 8.31265 20.9303 8.40111 20.7727 8.45565L21.2635 9.8731ZM3.22727 8.45565C3.06974 8.40111 2.9366 8.31265 2.85172 8.21871C2.77081 8.12917 2.75 8.05587 2.75 8H1.25C1.25 9.00246 2.05785 9.63813 2.73652 9.8731L3.22727 8.45565ZM20.7727 15.5444C20.9303 15.5989 21.0634 15.6873 21.1483 15.7813C21.2292 15.8708 21.25 15.9441 21.25 16H22.75C22.75 14.9975 21.9422 14.3619 21.2635 14.1269L20.7727 15.5444ZM9.25 9C9.25 9.13807 9.13807 9.25 9 9.25V10.75C9.9665 10.75 10.75 9.9665 10.75 9H9.25ZM9 9.25C8.86193 9.25 8.75 9.13807 8.75 9H7.25C7.25 9.9665 8.0335 10.75 9 10.75V9.25ZM8.75 9C8.75 8.86193 8.86193 8.75 9 8.75V7.25C8.0335 7.25 7.25 8.0335 7.25 9H8.75ZM9 8.75C9.13807 8.75 9.25 8.86193 9.25 9H10.75C10.75 8.0335 9.9665 7.25 9 7.25V8.75ZM15.25 15C15.25 15.1381 15.1381 15.25 15 15.25V16.75C15.9665 16.75 16.75 15.9665 16.75 15H15.25ZM15 15.25C14.8619 15.25 14.75 15.1381 14.75 15H13.25C13.25 15.9665 14.0335 16.75 15 16.75V15.25ZM14.75 15C14.75 14.8619 14.8619 14.75 15 14.75V13.25C14.0335 13.25 13.25 14.0335 13.25 15H14.75ZM15 14.75C15.1381 14.75 15.25 14.8619 15.25 15H16.75C16.75 14.0335 15.9665 13.25 15 13.25V14.75ZM14.4697 8.46967L8.46967 14.4697L9.53033 15.5303L15.5303 9.53033L14.4697 8.46967Z" fill="#141718"/>
+                            </svg>
+                        </div>
+                        <p>30% off storewide — Limited time! </p>
+                        <a href="shop.html" class="d-md-inline d-none">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-1 p-0">
+                    <div class="left-head d-flex justify-content-md-end justify-content-start align-items-center pe-lg-4">
+                        <button id="close" type="button" class="btn-close" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-bar">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">3legant.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column justify-content-between align-items-start">
+                    <div class="top-content-offcanves w-100">
+                        <div class="search-side-bar w-100 position-relative d-flex justify-content-start align-items-center gap-5">
+                            <input type="text" placeholder="Search" class="w-100">
+                            <i class="fa-solid fa-magnifying-glass position-absolute"></i>
+                        </div>
+                        <div class="mt-3 w-100 d-flex flex-column justify-content-between align-items-start" id="navbarNav">
+                            <button class="btn homt-side-btn d-flex justify-content-start ps-3 w-100">Home</button>
+                            <div class="accordion accordion-flush w-100" id="accordionFlushExample">
+                                <div class="accordion-item ps-0">
+                                    <h2 class="accordion-header ps-0">
+                                    <button class="btn accordion-button collapsed ps-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                        Products
+                                    </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item’s accordion body. Let’s imagine this being filled with some actual content.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                    <button class="btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Shop
+                                    </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item’s accordion body.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn contact-side-btn d-flex justify-content-start ps-3 w-100">Contact Us</button>
+                        </div>
+                    </div>
+                    <div class="bottm-content w-100">
+                        <div class="btns d-flex flex-column justify-content-center align-items-start w-100">
+                            <a href="cart.html" class="cart-btn-offcanves btn w-100 d-flex justify-content-between align-items-center">
+                                <span>Cart</span>
+                                <div class="count-of-products-in-cart right-cart d-flex justify-content-center align-items-center gap-2">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <div class="count-of-shopping-items">0</div>
+                                </div>
+                            </a>
+                            <a href="wish-list.html" class="cart-btn-offcanves btn w-100 d-flex justify-content-between align-items-center">
+                                <span>Wishlist</span>
+                                <div class="right-cart d-flex justify-content-center align-items-center gap-2">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <div class="count-of-shopping-items">0</div>
+                                </div>
+                            </a>
+                            <button class="w-100 mt-1 btn sign-in-btn d-flex justify-content-center align-items-center rounded-3">Sign In</button>
+                            <div class=" mt-3 social-media-offcanves d-flex justify-content-start align-items-center gap-5">
+                                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg" data-aos="zoom-in-up">
+            <div class="container justify-content-lg-between justify-content-start gap-3">
+                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand " href="#">3legant.</a>
+                <div class="collapse navbar-collapse flex-grow-0 justify-content-between w-75" id="navbarNav">
+                    <ul class="navbar-nav w-50 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="btns d-flex justify-content-lg-between justify-content-start align-items-center gap-lg-0 gap-3">
+                        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTopThird" aria-controls="offcanvasTopThird">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <a href="account.html" class="btn"><i class="fa-regular fa-user"></i></a>
+                        <button id="open-cart" class="btn d-flex justify-content-center align-items-center gap-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSecond">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="count-of-products-in-cart count-of-shopping-items">
+                                0
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="show-on-small flex-grow-1 d-lg-none d-flex justify-content-end align-items-center gap-4">
+                    <button id class="btn d-flex justify-content-center align-items-center gap-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSecond">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="count-of-products-in-cart count-of-shopping-items">
+                            0
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="cart-canves">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSecond">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="cart-body-products" class="top-section height-80">
+                </div>
+                <div class="bottom-section d-flex flex-column justify-content-center align-items-center w-100">
+                    <div class="subtotal pt-2 pb-2 d-flex justify-content-between align-items-center w-100">
+                        <span>Subtotal</span>
+                        <h2 class="total-amount">$99.00</h2>
+                    </div>
+                    <div class="total pt-2 pb-2 d-flex justify-content-between align-items-center w-100">
+                        <span>Total</span>
+                        <h2 class="total-amount">$99.00</h2>
+                    </div>
+                    <div class="checkout d-flex justify-content-center align-items-center w-100">
+                        <button class="btn w-100">Checkout</button>
+                    </div>
+                    <a href="cart.html" class="pt-2 text-decoration-underline d-flex justify-content-center align-items-center">View Cart</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-top" tabindex="-1" 
+            id="offcanvasTopThird" 
+            aria-labelledby="offcanvasTopThirdLabel">
+            <div class="offcanvas-header w-100 d-flex justify-content-center align-items-center offcanvas-coloring">
+                <h5 class="offcanvas-title w-100 d-flex justify-content-center align-items-center offcanvas-coloring" id="offcanvasTopThirdLabel">Search</h5>
+                <button type="button" class="btn-close offcanvas-coloring" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body w-100 d-flex justify-content-center align-items-center offcanvas-coloring">
+                <form action="" class=" w-100 d-flex flex-column justify-content-center align-items-center offcanvas-coloring">
+                    <input id="search-field" type="text" placeholder="Search" class=" w-50 ps-5 pe-5 pt-3 pb-3 rounded-3">
+                    <button id="search-btn" class="btn search-btn-color ps-5 pe-5 pt-2 pb-2 rounded-3">Search</button>
+                </form>
+            </div>
+        </div>
+        
+    </header>
+
+    <main>
+
+        <div class="sec-1 mb-5" data-aos="zoom-in-up">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-lg-12 full-height">
+                        <div id="swiper-customization" class="swiper-customization full-height">
+                            <!-- Swiper -->
+                            <div class="swiper head-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href=""
+                                            data-fancybox="gallery" 
+                                            data-src="assets/imgs/mobilia-1.jpg"
+                                            >
+                                            <img src="assets/imgs/mobilia-1.jpg" alt="mobilia"/>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="" 
+                                            data-fancybox="gallery"
+                                            data-src="assets/imgs/mobilia-2.jpg"
+                                            >
+                                            <img src="assets/imgs/mobilia-2.jpg" alt="mobilia">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="" 
+                                            data-fancybox="gallery"
+                                            data-src="assets/imgs/mobilia-3.jpg"
+                                            >
+                                            <img src="assets/imgs/mobilia-3.jpg" alt="mobilia">
+                                        </a>                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="" 
+                                            data-fancybox="gallery"
+                                            data-src="assets/imgs/mobilia-4.jpg"
+                                            >
+                                            <img src="assets/imgs/mobilia-4.jpg" alt="mobilia">
+                                        </a>   
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="navigation-btns d-none d-md-flex justify-content-between align-items-center position-absolute">
+                            <div class="swiper-head-custom-prev"><i class="fa-solid fa-arrow-left"></i></div>
+                            <div class="swiper-head-custom-next"><i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-2 mt-5 pt-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="index-left-sec-2 full-height d-flex justify-content-lg-start justify-content-center align-items-center pt-md-3 pb-3">
+                            <h2>Simply Unique <span>/</span> <br>Simply Better<span>.</span></h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="index-right-sec-2 full-height d-flex justify-content-lg-end justify-content-center align-items-center pt-md-3 pb-3">
+                            <h2><strong>3legant</strong> is a gift & decorations store based in HCMC, Vietnam. Est since 2019. </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-3 mb-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 full-height col-md-10 offset-md-1 offset-lg-0">
+                        <div class="index-left-sec-3 full-height position-relative" id="index-left-sec-3">
+                            <div class="details d-flex flex-column justify-content-center align-items-start position-absolute">
+                                <h2>Living Room</h2>
+                                <a href="product.html">Show Now<i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <img src="assets/imgs/living room.jpg" alt="product">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-10 offset-md-1 offset-lg-0">
+                        <div class="row full-height">
+                            <div class="col-12">
+                                <div class="product-right-sec-3 d-flex justify-content-between align-items-cne">
+                                    <div class="details d-flex flex-column justify-content-end align-items-start ">
+                                        <h2>Bedroom</h2>
+                                        <a href="product.html">Show Now<i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                    <div class="prodct-img">
+                                        <img src="assets/imgs/bedroom.jpg" alt="product">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="product-right-sec-3 full-height d-flex justify-content-between align-items-cne">
+                                    <div class="details d-flex flex-column justify-content-end align-items-start ">
+                                        <h2>Kitchen</h2>
+                                        <a href="product.html">Show Now<i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                    <div class="prodct-img">
+                                        <img src="assets/imgs/kitchen.jpg" alt="product">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-4 mb-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 class="new-arrival d-flex justify-content-start align-items-center">New <br>Arrivals</h2>
+                    </div>
+                    <div class="col-6 full-height d-flex justify-content-end align-items-end d-md-flex d-none">
+                        <a href="products.html" class="more-product d-flex justify-content-end align-items-center">More Products<i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-5 mb-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row d-lg-flex d-none" id="desktop-products">
+                    <div class="col-lg-3">
+                        <div class="sec-5-product-card">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="top-card-sec-5 position-relative">
+                                        <img src="assets/imgs/Loveseat-Sofa.jpg" alt="product">
+                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                            <i class="fa-solid fa-heart hide-love"></i>
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <h2 class="product-title">Loveseat Sofa</h2>
+                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                            <h2 class="main-price">$199.00</h2>
+                                            <h2 class="price-after-discount">$400.00</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="sec-5-product-card">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="top-card-sec-5 position-relative">
+                                        <img src="assets/imgs/Table-Lamp-2.jpg" alt="product">
+                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                            <i class="fa-solid fa-heart hide-love"></i>
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <h2 class="product-title">Table Lamp</h2>
+                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                            <h2 class="main-price">$24.99</h2>
+                                            <h2 class="price-after-discount"></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="sec-5-product-card">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="top-card-sec-5 position-relative">
+                                        <img src="assets/imgs/Table-Lamp.jpg" alt="product">
+                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                            <i class="fa-solid fa-heart hide-love"></i>
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <h2 class="product-title">Beige Table Lamp</h2>
+                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                            <h2 class="main-price">$24.99</h2>
+                                            <h2 class="price-after-discount"></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="sec-5-product-card">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="top-card-sec-5 position-relative">
+                                        <img src="assets/imgs/Bamboo-Basket.jpg" alt="product">
+                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                            <i class="fa-solid fa-heart hide-love"></i>
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <h2 class="product-title">Bamboo basket</h2>
+                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                            <h2 class="main-price">$24.99</h2>
+                                            <h2 class="price-after-discount"></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-lg-none d-block">
+                    <div class="mobile-swiper-products">
+                        <!-- Swiper -->
+                        <div class="swiper myMobile">
+                            <div class="swiper-wrapper" id="mobile-swiper">
+                                <div class="swiper-slide">
+                                    <div class="col-lg-3">
+                                        <div class="sec-5-product-card">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="top-card-sec-5 position-relative">
+                                                        <img src="assets/imgs/Loveseat-Sofa.jpg" alt="product">
+                                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                                            <i class="fa-solid fa-heart hide-love"></i>
+                                                            <i class="fa-regular fa-heart"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <h2 class="product-title">Loveseat Sofa</h2>
+                                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                                            <h2 class="main-price">$199.00</h2>
+                                                            <h2 class="price-after-discount">$400.00</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-3">
+                                        <div class="sec-5-product-card">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="top-card-sec-5 position-relative">
+                                                        <img src="assets/imgs/Table-Lamp-2.jpg" alt="product">
+                                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                                            <i class="fa-solid fa-heart hide-love"></i>
+                                                            <i class="fa-regular fa-heart"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <h2 class="product-title">Table Lamp</h2>
+                                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                                            <h2 class="main-price">$24.99</h2>
+                                                            <h2 class="price-after-discount"></h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-3">
+                                        <div class="sec-5-product-card">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="top-card-sec-5 position-relative">
+                                                        <img src="assets/imgs/Table-Lamp.jpg" alt="product">
+                                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                                            <i class="fa-solid fa-heart hide-love"></i>
+                                                            <i class="fa-regular fa-heart"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <h2 class="product-title">Beige Table Lamp</h2>
+                                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                                            <h2 class="main-price">$24.99</h2>
+                                                            <h2 class="price-after-discount"></h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="col-lg-3">
+                                        <div class="sec-5-product-card">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="top-card-sec-5 position-relative">
+                                                        <img src="assets/imgs/Bamboo-Basket.jpg" alt="product">
+                                                        <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                                            <i class="fa-solid fa-heart hide-love"></i>
+                                                            <i class="fa-regular fa-heart"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
+                                                        <div class="rate d-flex justify-content-start align-items-center gap-2">
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="star">
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M6.53834 1.10997C6.70914 0.699319 7.29086 0.699318 7.46166 1.10996L8.99874 4.80556C9.07075 4.97868 9.23355 5.09696 9.42045 5.11194L13.4102 5.4318C13.8535 5.46734 14.0332 6.02059 13.6955 6.30993L10.6557 8.91378C10.5133 9.03576 10.4512 9.22715 10.4947 9.40952L11.4234 13.3028C11.5265 13.7354 11.0559 14.0773 10.6764 13.8455L7.26063 11.7592C7.10062 11.6615 6.89938 11.6615 6.73937 11.7592L3.32363 13.8455C2.94408 14.0773 2.47345 13.7354 2.57665 13.3028L3.50534 9.40952C3.54884 9.22715 3.48665 9.03576 3.34426 8.91378L0.304527 6.30993C-0.0332418 6.02059 0.14652 5.46734 0.589847 5.4318L4.57955 5.11194C4.76645 5.09696 4.92925 4.97868 5.00126 4.80556L6.53834 1.10997Z" fill="#343839"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <h2 class="product-title">Bamboo basket</h2>
+                                                        <div class="prices d-flex justify-content-start align-items-center gap-4">
+                                                            <h2 class="main-price">$24.99</h2>
+                                                            <h2 class="price-after-discount"></h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-6" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-6 full-height mb-lg-0 mb-4">
+                        <div class="our-feature full-height p-5 d-flex flex-column justify-content-center align-items-start gap-3 ps-4">
+                            <div class="icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28 38V14M28 38H32M28 38H18M28 14C28 9.58172 24.4183 6 20 6H12C7.58172 6 4 9.58172 4 14V30C4 33.7304 6.55333 36.8645 10.0077 37.7499M28 14H34.4182C35.4344 14 36.4126 14.3868 37.154 15.0819L42.7358 20.3148C43.5424 21.071 44 22.1273 44 23.2329V34C44 36.2091 42.2091 38 40 38M40 38C40 40.2091 38.2091 42 36 42C33.7909 42 32 40.2091 32 38M40 38C40 35.7909 38.2091 34 36 34C33.7909 34 32 35.7909 32 38M18 38C18 40.2091 16.2091 42 14 42C11.7909 42 10 40.2091 10 38C10 37.916 10.0026 37.8326 10.0077 37.7499M18 38C18 35.7909 16.2091 34 14 34C11.8748 34 10.1368 35.6573 10.0077 37.7499" stroke="#141718" stroke-width="2.5"/>
+                                <path d="M20 16H16" stroke="#141718" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20 24H12" stroke="#141718" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h2 class="feature">Free Shipping</h2>
+                            <div class="note">Order above $200</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 full-height mb-lg-0 mb-4">
+                        <div class="our-feature full-height p-5 d-flex flex-column justify-content-center align-items-start gap-3 ps-4">
+                            <div class="icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="8" width="40" height="32" rx="4" stroke="#141718" stroke-width="2.5"/>
+                                <circle cx="4" cy="4" r="4" transform="matrix(1 0 0 -1 20 28)" stroke="#141718" stroke-width="2.5"/>
+                                <circle cx="2" cy="2" r="2" transform="matrix(1 0 0 -1 34 26)" fill="#141718"/>
+                                <circle cx="2" cy="2" r="2" transform="matrix(1 0 0 -1 10 26)" fill="#141718"/>
+                                </svg>
+                            </div>
+                            <h2 class="feature">Money-back</h2>
+                            <div class="note">30 days guarantee</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 full-height mb-lg-0 mb-4">
+                        <div class="our-feature full-height p-5 d-flex flex-column justify-content-center align-items-start gap-3 ps-4">
+                            <div class="icon">
+                                <svg width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M26 14H10M26 14C30.4183 14 34 17.5817 34 22V34C34 38.4183 30.4183 42 26 42H10C5.58172 42 2 38.4183 2 34V22C2 17.5817 5.58172 14 10 14M26 14V10C26 5.58172 22.4183 2 18 2C13.5817 2 10 5.58172 10 10V14M18 30V26" stroke="#141718" stroke-width="2.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h2 class="feature">Secure Payments</h2>
+                            <div class="note">Secured by Stripe</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 full-height mb-lg-0 mb-4">
+                        <div class="our-feature full-height p-5 d-flex flex-column justify-content-center align-items-start gap-3 ps-4">
+                            <div class="icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M38 34V30.7081C38 29.0725 37.0042 27.6017 35.4856 26.9942L31.4173 25.3669C29.4857 24.5943 27.2844 25.4312 26.354 27.292L26 28C26 28 21 27 17 23C13 19 12 14 12 14L12.708 13.646C14.5688 12.7156 15.4057 10.5143 14.6331 8.58271L13.0058 4.51444C12.3983 2.99581 10.9275 2 9.29187 2H6C3.79086 2 2 3.79086 2 6C2 23.6731 16.3269 38 34 38C36.2091 38 38 36.2091 38 34Z" stroke="#141718" stroke-width="2.5" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h2 class="feature">24/7 Support</h2>
+                            <div class="note">Phone and Email support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-7 mb-5" data-aos="zoom-in-up">
+            <div class="container-fluid p-0">
+                <div class="row p-0 m-0">
+                    <div class="col-lg-6 p-0 m-0">
+                        <div class="left-sec-7 w-100">
+                            <img src="assets/imgs/room.jpg" alt="room">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 light-white p-0 m-0 full-height d-flex justify-content-center align-items-center">
+                        <div class="right-sec-7 d-flex flex-column justify-content-start align-items-start gap-4 ps-5 pe-5 mt-lg-0 mt-lg-0 mt-5 mb-lg-0 mb-5">
+                            <span>SALE UP TO 35% OFF</span>
+                            <h2>HUNDREDS of <br>New lower prices!</h2>
+                            <p>It’s more affordable than ever to give every room in your home a stylish makeover</p>
+                            <a href="shop.html">Shop Now<i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-8 mb-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 class="new-arrival d-flex justify-content-start align-items-center">Articles</h2>
+                    </div>
+                    <div class="col-6 full-height d-flex justify-content-end align-items-center">
+                        <a href="articles.html" class="more-product d-flex justify-content-end align-items-center">More Articles<i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-9 mb-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-10 offset-md-1 offset-lg-0">
+                        <div class="article-sec-9 mb-lg-0 mb-3">
+                            <div class="sec-9-img">
+                                <img src="assets/imgs/article-1.jpg" alt="article">
+                            </div>
+                            <h2 class="pt-3">7 ways to decor your home</h2>
+                            <a href="article.html">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-10 offset-md-1 offset-lg-0">
+                        <div class="article-sec-9 mb-lg-0 mb-3">
+                            <div class="sec-9-img">
+                                <img src="assets/imgs/article-2.jpg" alt="article">
+                            </div>
+                            <h2 class="pt-3">Kitchen organization</h2>
+                            <a href="article.html">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-10 offset-md-1 offset-lg-0">
+                        <div class="article-sec-9 mb-lg-0 mb-3">
+                            <div class="sec-9-img">
+                                <img src="assets/imgs/article-3.jpg" alt="article">
+                            </div>
+                            <h2 class="pt-3">Decor your bedroom</h2>
+                            <a href="article.html">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sec-10 mb-5" data-aos="zoom-in-up">
+            <div class="container-fluid p-0 overflow-hide">
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-between align-items-center full-height">
+
+                        <div class="left-img-sec-10 overflow-hide d-md-block d-none">
+                            <img src="assets/imgs/bedroom.jpg" alt="bedroom">
+                        </div>
+                        
+                        <div class="middlie-sec-in-card d-flex flex-column justify-content-center align-items-center w-100">
+                            <h2>Join Our Newsletter</h2>
+                            <p>Sign up for deals, new products and promotions</p>
+                            <div class="sign-up-field light-white d-flex justify-content-center align-items-center">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" placeholder="Email address">
+                                <button class="btn">Signup</button>
+                            </div>
+                        </div>
+                        
+                        <div class="right-img-sec-10 d-md-block d-none">
+                            <img src="assets/imgs/sofa.jpg" alt="product">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer pt-5" data-aos="zoom-in-up">
+            <div class="container pt-5">
+                <div class="row pb-5 border-bottom">
+                    <div class="col-lg-6">
+                        <div class="left-foot d-flex flex-md-row flex-column justify-content-md-start justify-content-center align-items-center gap-5">
+                            <h2 class="logo-foot">3legant.</h2>
+                            <span class="white-color d-md-inline d-none">|</span>
+                            <a href="" class="gifts">Gift & Decoration Store</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="right-foot d-flex justify-content-between align-items-center w-100 mt-lg-0 mt-4">
+                            <ul class="d-flex flex-md-row flex-column justify-content-between align-items-center gap-md-0 gap-5 w-100">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="shop.html">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="products.html">Products</a>
+                                </li>
+                                <li>
+                                    <a href="articles.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="contact-us.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-3 pb-3">
+                    <div class="col-lg-6 order-lg-0 order-3 d-flex justify-content-start align-items-start">
+                        <div class="right-foot-copy w-100 p-0">
+                            <ul class="d-flex flex-md-row flex-row-reverse justify-content-lg-between justify-content-center gap-lg-0 gap-4 align-items-center flex-wrap w-100">
+                                <li>Copyright © 2023 3legant. All rights reserved</li>
+                                <li>
+                                    <a href="shop.html">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="products.html">Terms of Use</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-0">
+                        <div class="right-foot d-flex justify-content-lg-end justify-content-center align-items-center w-100">
+                            <ul class="d-flex justify-content-lg-end justify-content-center align-items-center gap-5 w-50">
+                                <li>
+                                    <a href=""><i class="fa-brands fa-instagram white-color"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-brands fa-facebook-f white-color"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-brands fa-youtube white-color"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>   
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

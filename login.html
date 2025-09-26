@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Krist E-Commerce | Login Page</title>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+
+        <div class="row p-0 m-0">
+            <div class="col-lg-6 p-0 m-0">
+                <div class="right-img w-100">
+                    <h2 class="logo-text text-center pt-5">3legant.</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 m-0 full-height d-flex justify-content-lg-start justify-content-center align-items-center">
+                <form id="form" action="" class="w-100">
+                    <div class="form w-100 full-height d-flex flex-column justify-content-center align-items-lg-start align-items-center ps-lg-5 pe-lg-5 gap-4">
+                        <div class="form-sec-0 w-75 mt-lg-0 mt-5">
+                            <h2>Sign In</h2>
+                            <span class="d-flex mt-4">Don’t have an accout yet? <a href="sign-up.html">Sign Up</a></span>
+                        </div>
+
+                        <div class="form-sec-1 d-flex flex-column justify-content-center align-items-start mt-4 w-75 gap-2">
+                            <input type="email" name="email" id="email" placeholder="Your usernam or email address">
+                        </div>
+
+                        <div class="form-sec-2 position-relative d-flex flex-column justify-content-center align-items-start w-75">
+                            <input type="password" name="password" id="password" placeholder="Password">
+                            <i id="shown" class="fa-solid fa-eye position-absolute eye" style="color: #a4a4a4;"></i>
+                            <i id="hide" class="fa-solid fa-eye-slash position-absolute eye hidden" style="color: #a4a4a4;"></i>
+                        </div>
+
+                        <div class="form-sec-3 d-flex justify-content-between align-items-start w-75 mt-4">
+                            <div class="remember-check d-flex justify-content-start align-items-center gap-2">
+                                <input type="checkbox" name="remember" id="remember">
+                                <label for="remember">Remember Me</label>
+                            </div>
+                            <a href="forget-password.html"><strong>Forget Password?</strong></a>
+                        </div>
+
+                        <div class="form-sec-4 w-75 mt-3">
+                            <button id="login" class="btn form-btn w-100">Login</button>
+                        </div>
+                        <div id="result" class="w-100 mt-5 pe-lg-5"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/login.js"></script>
+</body>
+</html>
