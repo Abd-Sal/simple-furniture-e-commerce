@@ -32,3 +32,4 @@ E:\Frontend Tamkeen\Projects\Tamkeen Project 1\WebAPI\Furniture.API\Furniture.AP
 E:\Frontend Tamkeen\Projects\Tamkeen Project 1\WebAPI\Furniture.API\Furniture.API\obj\Release\net9.0\Furniture.API.pdb
 E:\Frontend Tamkeen\Projects\Tamkeen Project 1\WebAPI\Furniture.API\Furniture.API\obj\Release\net9.0\Furniture.API.genruntimeconfig.cache
 E:\Frontend Tamkeen\Projects\Tamkeen Project 1\WebAPI\Furniture.API\Furniture.API\obj\Release\net9.0\ref\Furniture.API.dll
+E:\Frontend Tamkeen\Projects\Tamkeen Project 1\WebAPI\Furniture.API\Furniture.API\obj\Release\net9.0\Furniture.API.sourcelink.json

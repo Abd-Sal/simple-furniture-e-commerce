@@ -53,8 +53,9 @@ window.addEventListener('DOMContentLoaded', function(){
     })
 
     let search_btn = this.document.getElementById('search-btn')
+    let search_field = this.document.getElementById('search-field')
     search_btn.addEventListener('click', function(){
-        window.open(`shop.html?search=${search_btn.value}`, '_self')
+        window.open(`shop.html?search=${search_field.value}`, '_blank')
     })
 
     //Start Up Call Functions
@@ -62,7 +63,7 @@ window.addEventListener('DOMContentLoaded', function(){
     fillOffcanvesCartWithProducts();
     injectTotalAmountInCart();
     cartButtons();
-
+    removeProductFromCartUI();
 
     if (window.location.pathname.includes('index.html') || 
         window.location.href.includes('index.html')){
@@ -339,7 +340,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                 </div>
                 `)
                 desktopProducts.push(`
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 mb-4">
                         <div class="sec-5-product-card">
                             <div class="row">
                                 <div class="col-12">
@@ -407,6 +408,8 @@ window.addEventListener('DOMContentLoaded', function(){
                     if(checkIfProductInCart(item.id)){
                         increaseProductCountInCart(item.id);
                         fillOffcanvesCartWithProducts();
+                        removeProductFromCartUI();
+                        cartButtons();
                         return;
                     }
                     fetch(`http://localhost:5000/api/products/${item.id}`)
@@ -427,6 +430,7 @@ window.addEventListener('DOMContentLoaded', function(){
                         localStorage.setItem('cart', mergeProducts)
                         updateAllCartContentInUI();
                         cartButtons();
+                        removeProductFromCartUI();
                     }).catch((e)=>{
                         console.error(e.message);
                     }).finally();
@@ -622,7 +626,6 @@ window.addEventListener('DOMContentLoaded', function(){
         let total_amount = document.querySelectorAll('.total-amount')
         total_amount.forEach((item)=>{
             item.innerText = `$${calculateTotalAmountOfCartProducts()}`
-            console.log('update total amount')
         })
     }
 })
