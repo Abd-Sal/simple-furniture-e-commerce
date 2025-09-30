@@ -193,6 +193,76 @@
         
     </header>
 
+    <div class="filter-caves">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasCustom1" aria-labelledby="offcanvasCustom1Label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasCustom1Label">Filter</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="filters d-flex flex-column justify-content-center align-items-start gap-5">
+                    <div class="categories-filter d-flex justify-content-start align-items-start">
+                        <ul class="w-100 d-flex flex-column justify-content-start align-items-start gap-3">
+                            <li>
+                                <h2>Categories</h2>
+                            </li>
+                            <li>All Rooms</li>
+                            <li class="active">Living Room</li>
+                            <li>Bedroom</li>
+                            <li>Kitchen</li>
+                            <li>Bathroom</li>
+                            <li>Dinning</li>
+                            <li>Outdoor</li>
+                        </ul>
+                    </div>
+                    <div class="w-100 price-filter d-flex justify-content-start align-items-start">
+                        <ul class="w-100 d-flex flex-column justify-content-start align-items-start gap-3">
+                            <li>
+                                <h2>PRICE</h2>
+                            </li>
+                            <li class="w-100">
+                                <div class="price w-100 d-flex justify-content-between align-items-center">
+                                    <label for="price1">All Price</label>
+                                    <input type="radio" id="price1" name="price" checked>
+                                </div>
+                            </li>
+                            <li class="w-100">
+                                <div class="price w-100 d-flex justify-content-between align-items-center">
+                                    <label for="price2">$0.00 - 99.99</label>
+                                    <input type="radio" id="price2" name="price">
+                                </div>
+                            </li>
+                            <li class="w-100">
+                                <div class="price w-100 d-flex justify-content-between align-items-center">
+                                    <label for="price3">$100.00 - 199.99</label>
+                                    <input type="radio" id="price3" name="price">
+                                </div>
+                            </li>
+                            <li class="w-100">
+                                <div class="price w-100 d-flex justify-content-between align-items-center">
+                                    <label for="price4">$200.00 - 299.99</label>
+                                    <input type="radio" id="price4" name="price">
+                                </div>
+                            </li>
+                            <li class="w-100">
+                                <div class="price w-100 d-flex justify-content-between align-items-center">
+                                    <label for="price5">$300.00 - 399.99</label>
+                                    <input type="radio" id="price5" name="price">
+                                </div>
+                            </li>
+                            <li class="w-100">
+                                <div class="price w-100 d-flex justify-content-between align-items-center">
+                                    <label for="price6">$400.00+</label>
+                                    <input type="radio" id="price6" name="price">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="sec-20" data-aos="zoom-in-up">
             <div class="container">
@@ -201,12 +271,12 @@
                         <div class="back-sec-20 w-100 d-flex flex-column justify-content-center align-items-center gap-5">
                             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Shop</li>
                                 </ol>
                             </nav>
                             <h2>Shop Page</h2>
-                            <p>Let’s design the place you always imagined.</p>
+                            <p class="ps-md-0 pe-md-0 ps-3 pe-3">Let’s design the place you always imagined.</p>
                         </div>
                     </div>
                 </div>
@@ -216,16 +286,24 @@
         <div class="sec-21" data-aos="zoom-in-up">
             <div class="container mt-5 mb-5">
                 <div class="row">
-                    <div class="col-lg-2 d-flex justify-content-start align-items-center gap-3">
-                        <i class="fa-solid fa-sliders"></i>
-                        <h2 class="filter-text mb-0">Filter</h2>
+                    <div class="col-lg-2 col-12 d-flex flex-wrap justify-content-lg-start justify-content-between mb-lg-0 mb-3 align-items-center gap-3">
+                        <div class="d-flex justify-content-start align-items-center gap-3">
+                            <i class="fa-solid fa-sliders"></i>
+                            <h2 class="filter-text mb-0">Filter</h2>
+                        </div>
+                        <div class="d-flex justify-content-end align-items-center gap-3">
+                            <button class="btn active d-lg-none d-flex"><i class="fa-solid fa-table-cells"></i></button>
+                            <button class="btn d-lg-none d-flex"><i class="fa-solid fa-border-all"></i></button>
+                            <button class="btn d-lg-none d-flex"><i class="fa-solid fa-grip-vertical"></i></button>
+                            <button class="btn d-lg-none d-flex"><i class="fa-solid fa-grip"></i></button>
+                        </div>
                     </div>
-                    <div class="col-lg-10 d-flex justify-content-start align-items-center">
+                    <div class="col-lg-10 col-12 d-flex justify-content-start align-items-center">
                         <div class="text-sec-21 w-100 d-flex justify-content-between align-items-center">
                             <h2 class="mb-0">Living Room</h2>
-                            <div class="sorts d-flex justify-content-center align-items-center gap-3">
+                            <div class="sorts d-flex flex-wrap justify-content-center align-items-center gap-3">
                                 <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Sort by
                                     </a>
                                     <ul class="dropdown-menu">
@@ -234,11 +312,15 @@
                                         <li><a class="dropdown-item" href="#">Discount</a></li>
                                     </ul>
                                 </div>
-                                <button class="btn active d-md-flex d-none"><i class="fa-solid fa-table-cells"></i></button>
-                                <button class="btn d-md-flex d-none"><i class="fa-solid fa-border-all"></i></button>
-                                <button class="btn d-md-flex d-none"><i class="fa-solid fa-grip-vertical"></i></button>
-                                <button class="btn d-md-flex d-none"><i class="fa-solid fa-grip"></i></button>
+                                <button id="grid-9" class="btn active d-lg-flex d-none"><i class="fa-solid fa-table-cells"></i></button>
+                                <button class="btn d-lg-flex d-none"><i class="fa-solid fa-border-all"></i></button>
+                                <button class="btn d-lg-flex d-none"><i class="fa-solid fa-grip-vertical"></i></button>
+                                <button id="grid-1" class="btn d-lg-flex d-none"><i class="fa-solid fa-grip"></i></button>
+                                <button class="btn d-lg-none d-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCustom1" aria-controls="offcanvasCustom1">
+                                    <i class="fas fa-list"></i>
+                                </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -249,7 +331,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-2">
-                        <div class="filters d-flex flex-column justify-content-center align-items-start gap-4">
+                        <div class="filters d-none d-lg-flex flex-column justify-content-center align-items-start gap-4">
                             <div class="categories-filter d-flex justify-content-start align-items-start">
                                 <ul class="w-100 d-flex flex-column justify-content-start align-items-start gap-3">
                                     <li>
@@ -272,7 +354,7 @@
                                     <li class="w-100">
                                         <div class="price w-100 d-flex justify-content-between align-items-center">
                                             <label for="price1">All Price</label>
-                                            <input type="radio" id="price1" name="price">
+                                            <input type="radio" id="price1" name="price" checked>
                                         </div>
                                     </li>
                                     <li class="w-100">
@@ -311,11 +393,11 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="shop-products">
-                            <div id="shop-products-row" class="row">
-                                <div class="col-lg-4 mb-4">
+                            <div id="shop-products-row" class="row grid-shape-9">
+                                <div class="col-lg-4 mb-4 grid-9-first">
                                     <div class="sec-5-product-card">
                                         <div class="row">
-                                            <div class="col-12">
+                                            <div class="col-12 grid-9-second">
                                                 <div class="top-card-sec-5 position-relative">
                                                     <img src="assets/imgs/Loveseat-Sofa.jpg" alt="product">
                                                     <button class="btn position-absolute add-to-card-btn w-80">Add To Cart</button>
@@ -326,7 +408,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
+                                            <div class="col-12 grid-9-third">
                                                 <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
                                                     <div class="rate d-flex justify-content-start align-items-center gap-2">
                                                         <div class="star">
@@ -374,7 +456,7 @@
     </main>
 
     <footer>
-        <div class="footer pt-5" data-aos="zoom-in-up">
+        <div class="footer pt-5">
             <div class="container pt-5">
                 <div class="row pb-5 border-bottom">
                     <div class="col-lg-6">

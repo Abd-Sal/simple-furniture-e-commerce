@@ -25,7 +25,33 @@ window.addEventListener('DOMContentLoaded', function(){
         },
         },
     });
-    var swiper2 = new Swiper(".myMobile", {
+    var swiper2 = new Swiper(".head-cart-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-head-cart-custom-next",
+            prevEl: ".swiper-head-cart-custom-prev",
+        },
+        breakpoints: {
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 40,
+        },
+        1024: {
+            slidesPerView: 1,
+            spaceBetween: 50,
+        },
+        },
+    });
+    var swiper3 = new Swiper(".myMobile", {
         slidesPerView: 1.4,
         spaceBetween: 10,
         pagination: {
@@ -74,7 +100,18 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     
 
-
+    let gird1 = document.getElementById('grid-1');
+    let gird9 = document.getElementById('grid-9');
+    gird1.addEventListener('click', function(){
+        this.classList.toggle('active')
+        gird9.classList.toggle('active')
+        reArrangeItemsInGrid_1()
+    })
+    gird9.addEventListener('click', function(){
+        this.classList.toggle('active')
+        gird1.classList.toggle('active')
+        reArrangeItemsInGrid_9()
+    })
 
     //functions
     function cartButtons(){
@@ -169,13 +206,15 @@ window.addEventListener('DOMContentLoaded', function(){
             body.forEach((item)=>{
                 let {id, name, category, description,  images, price, discount } = item
                 allProducts.push(`
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-lg-4 col-6 mb-4 grid-9-first">
                         <div class="sec-5-product-card">
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="top-card-sec-5 position-relative">
-                                        <img src="${images[0].url}" alt="product">
-                                        <button id="${id}" class="add-to-card btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                <div class="col-12 grid-9-second">
+                                    <div class="top-card-sec-5 d-flex justify-content-center align-items-center position-relative">
+                                        <a href="product.html">
+                                            <img src="${images[0].url}" alt="product">
+                                        </a>
+                                        <button id="${id}" class="d-block add-to-card btn position-absolute add-to-card-btn w-80">Add To Cart</button>
                                         <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
                                         <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
                                             <i class="fa-solid fa-heart hide-love"></i>
@@ -183,7 +222,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 grid-9-third">
                                     <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
                                         <div class="rate d-flex justify-content-start align-items-center gap-2">
                                             <div class="star">
@@ -218,6 +257,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                             <h2 class="price-after-discount">${(discount > 0) ? '$'+price : ''}</h2>
                                         </div>
                                     </div>
+                                    <button id="${id}" class="gird1-add-to-cart d-none add-to-card btn add-to-card-btn w-80">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -238,6 +278,8 @@ window.addEventListener('DOMContentLoaded', function(){
                     if(checkIfProductInCart(item.id)){
                         increaseProductCountInCart(item.id);
                         fillOffcanvesCartWithProducts();
+                        removeProductFromCartUI();
+                        cartButtons();
                         return;
                     }
                     fetch(`http://localhost:5000/api/products/${item.id}`)
@@ -288,9 +330,11 @@ window.addEventListener('DOMContentLoaded', function(){
                                         <div class="sec-5-product-card">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <div class="top-card-sec-5 position-relative">
-                                                        <img src="${images[0].url}" alt="product">
-                                                        <button id="${id}" class="add-to-card btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                                    <div class="top-card-sec-5 d-flex justify-content-center align-items-center position-relative">
+                                                        <a href="product.html">
+                                                            <img src="${images[0].url}" alt="product">
+                                                        </a>
+                                                        <button id="${id}" class="d-block add-to-card btn position-absolute add-to-card-btn w-80">Add To Cart</button>
                                                         <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
                                                         <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
                                                             <i class="fa-solid fa-heart hide-love"></i>
@@ -333,6 +377,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                                             <h2 class="price-after-discount">${(discount > 0) ? '$'+price : ''}</h2>
                                                         </div>
                                                     </div>
+                                                    <button id="${id}" class="gird1-add-to-cart d-none add-to-card btn add-to-card-btn w-80">Add To Cart</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -344,15 +389,19 @@ window.addEventListener('DOMContentLoaded', function(){
                         <div class="sec-5-product-card">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="top-card-sec-5 position-relative">
-                                        <img src="${images[0].url}" alt="product">
-                                        <button id="${id}" class="add-to-card btn position-absolute add-to-card-btn w-80">Add To Cart</button>
-                                        <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
-                                        <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
-                                            <i class="fa-solid fa-heart hide-love"></i>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
+                                    <a href="product.html">
+                                        <div class="top-card-sec-5 d-flex justify-content-center align-items-center position-relative">
+                                        <a href="product.html">
+                                            <img src="${images[0].url}" alt="product">
+                                        </a>
+                                        <button id="${id}" class="d-block add-to-card btn position-absolute add-to-card-btn w-80">Add To Cart</button>
+                                            <span class="new-label d-flex justify-content-center align-items-center position-absolute">New</span>
+                                            <button class="btn favorite-btn d-flex justify-content-center align-items-center position-absolute">
+                                                <i class="fa-solid fa-heart hide-love"></i>
+                                                <i class="fa-regular fa-heart"></i>
+                                            </button>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="col-12">
                                     <div class="bottom-card-sec-5 p-2 d-flex flex-column gap-2">
@@ -389,6 +438,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                             <h2 class="price-after-discount">${(discount > 0) ? '$'+price : ''}</h2>
                                         </div>
                                     </div>
+                                    <button id="${id}" class="gird1-add-to-cart d-none add-to-card btn add-to-card-btn w-80">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -571,7 +621,9 @@ window.addEventListener('DOMContentLoaded', function(){
                         <div class="row mb-3">
                             <div class="col-3 full-height">
                                 <div class="product-img d-flex justify-content-center align-items-center">
-                                    <img src="${product.images[0].url}" alt="product">
+                                    <a href="product.html">
+                                        <img src="${product.images[0].url}" alt="product">
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-7 full-height">
@@ -628,4 +680,72 @@ window.addEventListener('DOMContentLoaded', function(){
             item.innerText = `$${calculateTotalAmountOfCartProducts()}`
         })
     }
+
+    function reArrangeItemsInGrid_1(){
+        let grid = document.querySelectorAll('#shop-products-row.grid-shape-9')
+        let gridFirst = document.querySelectorAll('.grid-9-first')
+        let gridSecond = document.querySelectorAll('.grid-9-second')
+        let gridThird = document.querySelectorAll('.grid-9-third')
+        let addToCartGrid1 = document.querySelectorAll('.gird1-add-to-cart')
+        let addToCart = document.querySelectorAll('.d-block.add-to-card')
+
+        gridFirst.forEach((item)=>{
+            item.classList.toggle('col-lg-12')
+            item.classList.add('p-3')
+        })
+
+        gridSecond.forEach((item)=>{
+
+            item.classList.toggle('col-lg-6')
+            item.classList.add('p-3')
+        })
+
+        gridThird.forEach((item)=>{
+            item.classList.toggle('col-lg-6')
+            item.classList.add('p-3')
+        })
+
+        addToCart.forEach((item)=>{
+            item.classList.remove('d-block')
+            item.classList.add('d-none')
+        })
+    
+        addToCartGrid1.forEach((item)=>{
+            item.classList.toggle('d-none')
+        })
+    }
+
+    function reArrangeItemsInGrid_9(){
+        let grid = document.querySelectorAll('#shop-products-row.grid-shape-9')
+        let gridFirst = document.querySelectorAll('.grid-9-first')
+        let gridSecond = document.querySelectorAll('.grid-9-second')
+        let gridThird = document.querySelectorAll('.grid-9-third')  
+        let addToCartGrid1 = document.querySelectorAll('.gird1-add-to-cart')
+        let addToCart = document.querySelectorAll('.d-block.add-to-card')
+
+        gridFirst.forEach((item)=>{
+            item.classList.toggle('col-lg-12')
+            item.classList.toggle('p-3')
+        })
+
+        gridSecond.forEach((item)=>{
+            item.classList.toggle('col-lg-6')
+            item.classList.toggle('p-3')
+        })
+
+        gridThird.forEach((item)=>{
+            item.classList.toggle('col-lg-6')
+            item.classList.toggle('p-3')
+        })
+
+        addToCart.forEach((item)=>{
+            item.classList.remove('d-none')
+            item.classList.add('d-block')
+        })
+
+        addToCartGrid1.forEach((item)=>{
+            item.classList.remove('d-none')
+        })
+    }
+
 })

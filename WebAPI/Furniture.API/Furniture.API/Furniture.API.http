@@ -1,6 +1,0 @@
-@Furniture.API_HostAddress = http://localhost:5273
-
-GET {{Furniture.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
