@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Krist E-Commerce | Orders Page</title>
+</head>
+<body>
+
+    
+    <header>
+        <div class="side-bar">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">3legant.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column justify-content-between align-items-start">
+                    <div class="top-content-offcanves w-100">
+                        <div class="search-side-bar w-100 position-relative d-flex justify-content-start align-items-center gap-5">
+                            <input type="text" placeholder="Search" class="w-100">
+                            <i class="fa-solid fa-magnifying-glass position-absolute"></i>
+                        </div>
+                        <div class="mt-3 w-100 d-flex flex-column justify-content-between align-items-start" id="navbarNav">
+                            <button class="btn homt-side-btn d-flex justify-content-start ps-3 w-100">Home</button>
+                            <div class="accordion accordion-flush w-100" id="accordionFlushExample">
+                                <div class="accordion-item ps-0">
+                                    <h2 class="accordion-header ps-0">
+                                    <button class="btn accordion-button collapsed ps-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                        Products
+                                    </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item’s accordion body. Let’s imagine this being filled with some actual content.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                    <button class="btn accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Shop
+                                    </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item’s accordion body.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn contact-side-btn d-flex justify-content-start ps-3 w-100">Contact Us</button>
+                        </div>
+                    </div>
+                    <div class="bottm-content w-100">
+                        <div class="btns d-flex flex-column justify-content-center align-items-start w-100">
+                            <a href="cart.html" class="cart-btn-offcanves btn w-100 d-flex justify-content-between align-items-center">
+                                <span>Cart</span>
+                                <div class="count-of-products-in-cart right-cart d-flex justify-content-center align-items-center gap-2">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <div class="count-of-shopping-items">0</div>
+                                </div>
+                            </a>
+                            <a href="wish-list.html" class="cart-btn-offcanves btn w-100 d-flex justify-content-between align-items-center">
+                                <span>Wishlist</span>
+                                <div class="right-cart d-flex justify-content-center align-items-center gap-2">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <div class="count-of-shopping-items">0</div>
+                                </div>
+                            </a>
+                            <button class="w-100 mt-1 btn sign-in-btn d-flex justify-content-center align-items-center rounded-3">Sign In</button>
+                            <div class=" mt-3 social-media-offcanves d-flex justify-content-start align-items-center gap-5">
+                                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg" data-aos="zoom-in-up">
+            <div class="container justify-content-lg-between justify-content-start gap-3">
+                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand " href="#">3legant.</a>
+                <div class="collapse navbar-collapse flex-grow-0 justify-content-between w-75" id="navbarNav">
+                    <ul class="navbar-nav w-50 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="btns d-flex justify-content-lg-between justify-content-start align-items-center gap-lg-0 gap-3">
+                        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTopThird" aria-controls="offcanvasTopThird">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <a href="account.html" class="btn"><i class="fa-regular fa-user"></i></a>
+                        <button id="open-cart" class="btn d-flex justify-content-center align-items-center gap-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSecond">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="count-of-products-in-cart count-of-shopping-items">
+                                0
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="show-on-small flex-grow-1 d-lg-none d-flex justify-content-end align-items-center gap-4">
+                    <button id class="btn d-flex justify-content-center align-items-center gap-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSecond">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="count-of-products-in-cart count-of-shopping-items">
+                            0
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="cart-canves">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSecond">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="cart-body-products" class="top-section height-80">
+                </div>
+                <div class="bottom-section d-flex flex-column justify-content-center align-items-center w-100">
+                    <div class="subtotal pt-2 pb-2 d-flex justify-content-between align-items-center w-100">
+                        <span>Subtotal</span>
+                        <h2 class="total-amount">$99.00</h2>
+                    </div>
+                    <div class="total pt-2 pb-2 d-flex justify-content-between align-items-center w-100">
+                        <span>Total</span>
+                        <h2 class="total-amount">$99.00</h2>
+                    </div>
+                    <div class="checkout d-flex justify-content-center align-items-center w-100">
+                        <button class="btn w-100">Checkout</button>
+                    </div>
+                    <a href="cart.html" class="pt-2 text-decoration-underline d-flex justify-content-center align-items-center">View Cart</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-top" tabindex="-1" 
+            id="offcanvasTopThird" 
+            aria-labelledby="offcanvasTopThirdLabel">
+            <div class="offcanvas-header w-100 d-flex justify-content-center align-items-center offcanvas-coloring">
+                <h5 class="offcanvas-title w-100 d-flex justify-content-center align-items-center offcanvas-coloring" id="offcanvasTopThirdLabel">Search</h5>
+                <button type="button" class="btn-close offcanvas-coloring" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body w-100 d-flex justify-content-center align-items-center offcanvas-coloring">
+                <form action="" class=" w-100 d-flex flex-column justify-content-center align-items-center offcanvas-coloring">
+                    <input id="search-field" type="text" placeholder="Search" class=" w-50 ps-5 pe-5 pt-3 pb-3 rounded-3">
+                    <button id="search-btn" class="btn search-btn-color ps-5 pe-5 pt-2 pb-2 rounded-3">Search</button>
+                </form>
+            </div>
+        </div>        
+    </header>
+
+    <main class="content">
+        <div class="sec-60 mt-5 mb-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                        <h2 class="title-account">My Account</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-61 mt-5 mb-5" data-aos="zoom-in-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 pe-5">
+                        <div class="profile pt-5 pb-5 ps-3 pe-3 d-flex flex-column justify-content-center align-items-center gap-4">
+                            <a href="">
+                                <div class="prof-img position-relative">
+                                    <img src="assets/imgs/profile.jpg" alt="profile">
+                                    <div class="position-absolute">
+                                        <i class="fa-solid fa-camera"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <h2>Sofia Havertz</h2>
+                            <div class="mt-5 mb-3 links-pages w-100 d-flex flex-column justify-content-between align-items-start gap-3">
+                                <a href="account.html" class="btn">Account</a>
+                                <a href="address.html" class="btn ">Address</a>
+                                <a href="orders.html" class="btn active">Orders</a>
+                                <a href="wishlist.html" class="btn">Wishlist</a>
+                                <a href="login.html" class="btn">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="account-details">
+                            <h2 class="mb-5">Orders History</h2>
+                            <div class="row">
+                                <div class="col-lg-3 head-table d-flex justify-content-start align-items-center">
+                                        <h3>Number ID</h3>
+                                </div>
+                                <div class="col-lg-3 head-table d-flex justify-content-center align-items-center">
+                                        <h3>Dates</h3>
+                                </div>
+                                <div class="col-lg-3 head-table d-flex justify-content-center align-items-center">
+                                        <h3>Status</h3>
+                                </div>
+                                <div class="col-lg-3 head-table d-flex justify-content-end align-items-center">
+                                    <h3>Price</h3>
+                                </div>
+                                <div class="col-lg-12">
+                                    <hr class="w-100">
+                                </div>
+                            </div>
+                            <div class="table-details w-100">
+                                <div class="row pt-3 pb-3">
+                                    <div class="col-lg-3 d-flex justify-content-start align-items-center">
+                                        <h4>#3456_768</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                                        <h4>October 17, 2023</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                                        <h4>Delivered</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-end align-items-center">
+                                        <h4>$1234.00</h4>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <hr class="w-100">
+                                    </div>
+                                </div>
+                                <div class="row pt-3 pb-3">
+                                    <div class="col-lg-3 d-flex justify-content-start align-items-center">
+                                        <h4>#3456_768</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                                        <h4>October 17, 2023</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                                        <h4>Delivered</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-end align-items-center">
+                                        <h4>$1234.00</h4>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <hr class="w-100">
+                                    </div>
+                                </div>
+                                <div class="row pt-3 pb-3">
+                                    <div class="col-lg-3 d-flex justify-content-start align-items-center">
+                                        <h4>#3456_768</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                                        <h4>October 17, 2023</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                                        <h4>Delivered</h4>
+                                    </div>
+                                    <div class="col-lg-3 d-flex justify-content-end align-items-center">
+                                        <h4>$1234.00</h4>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <hr class="w-100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="spec">
+        <div class="footer pt-5">
+            <div class="container pt-5">
+                <div class="row pb-5 border-bottom">
+                    <div class="col-lg-6">
+                        <div class="left-foot d-flex flex-md-row flex-column justify-content-md-start justify-content-center align-items-center gap-5">
+                            <h2 class="logo-foot">3legant.</h2>
+                            <span class="white-color d-md-inline d-none">|</span>
+                            <a href="" class="gifts">Gift & Decoration Store</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="right-foot d-flex justify-content-between align-items-center w-100 mt-lg-0 mt-4">
+                            <ul class="d-flex flex-md-row flex-column justify-content-between align-items-center gap-md-0 gap-5 w-100">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="shop.html">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="products.html">Products</a>
+                                </li>
+                                <li>
+                                    <a href="articles.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="contact-us.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-3 pb-3">
+                    <div class="col-lg-6 order-lg-0 order-3 d-flex justify-content-start align-items-start">
+                        <div class="right-foot-copy w-100 p-0">
+                            <ul class="d-flex flex-md-row flex-row-reverse justify-content-lg-between justify-content-center gap-lg-0 gap-4 align-items-center flex-wrap w-100">
+                                <li>Copyright © 2023 3legant. All rights reserved</li>
+                                <li>
+                                    <a href="shop.html">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="products.html">Terms of Use</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-0">
+                        <div class="right-foot d-flex justify-content-lg-end justify-content-center align-items-center w-100">
+                            <ul class="d-flex justify-content-lg-end justify-content-center align-items-center gap-5 w-50">
+                                <li>
+                                    <a href=""><i class="fa-brands fa-instagram white-color"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-brands fa-facebook-f white-color"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-brands fa-youtube white-color"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>   
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
