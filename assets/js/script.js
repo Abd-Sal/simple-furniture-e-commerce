@@ -75,7 +75,6 @@ window.addEventListener('DOMContentLoaded', function(){
         swiper_customization.forEach(function(item){
             item.classList.add('extend-swiper_customization')
         })
-        console.log('inject')
     })
 
     let search_btn = this.document.getElementById('search-btn')
@@ -89,7 +88,7 @@ window.addEventListener('DOMContentLoaded', function(){
     fillOffcanvesCartWithProducts();
     injectTotalAmountInCart();
     cartButtons();
-    removeProductFromCartUI();
+    // removeProductFromCartUI();
 
     if (window.location.pathname.includes('index.html') || 
         window.location.href.includes('index.html')){
@@ -98,21 +97,30 @@ window.addEventListener('DOMContentLoaded', function(){
             this.window.location.href.includes('shop.html')){
         caaSearchProductAPI();
     }
+
+    if(this.window.location.href.includes('cart-shipping.html')){
+        updateCartPage();
+    }
+
+
+
+    if(this.window.location.href.includes('shop.html')){
+        let gird1 = document.getElementById('grid-1');
+        let gird9 = document.getElementById('grid-9');
+        gird1.addEventListener('click', function(){
+            this.classList.toggle('active')
+            gird9.classList.toggle('active')
+            reArrangeItemsInGrid_1()
+        })
+        gird9.addEventListener('click', function(){
+            this.classList.toggle('active')
+            gird1.classList.toggle('active')
+            reArrangeItemsInGrid_9()
+        })
+    }
+
+
     
-
-    let gird1 = document.getElementById('grid-1');
-    let gird9 = document.getElementById('grid-9');
-    gird1.addEventListener('click', function(){
-        this.classList.toggle('active')
-        gird9.classList.toggle('active')
-        reArrangeItemsInGrid_1()
-    })
-    gird9.addEventListener('click', function(){
-        this.classList.toggle('active')
-        gird1.classList.toggle('active')
-        reArrangeItemsInGrid_9()
-    })
-
     //functions
     function cartButtons(){
         removeProductFromCartUI();
@@ -122,6 +130,10 @@ window.addEventListener('DOMContentLoaded', function(){
 
     function removeProductFromCartUI(){
         let remove_btns = document.querySelectorAll(`.remove-from-cart`)
+        if(!remove_btns){
+            console.log('#1 Error')
+            return;
+        }
         remove_btns.forEach((item)=>{
             if(!item){
                 return;
@@ -129,16 +141,27 @@ window.addEventListener('DOMContentLoaded', function(){
             item.addEventListener('click', function(){
                 let id = item.id.split('_')[0]
                 let product_card_in_cart = document.getElementById(`${id}-product-card-in-cart`)
-                removeFromCart(id);
+                if(!product_card_in_cart){
+                    console.log('#2 Error')
+                    return;
+                }
                 product_card_in_cart.remove();
+                removeFromCart(id);
                 updateCartCountInUI();
                 injectTotalAmountInCart();
+                // if(window.location.href.includes('cart-shipping.html')){
+                //     updateCartPage();
+                // }
             })
         })
     }
 
     function decreamentInCartButton(){
         let decrease_one_product = this.document.querySelectorAll('.decrease-one-product')
+        if(!decrease_one_product){
+            console.log('#3 Error')
+            return;
+        }
         decrease_one_product.forEach((item)=>{
             if(!item){
                 return
@@ -146,20 +169,35 @@ window.addEventListener('DOMContentLoaded', function(){
             item.addEventListener('click', function(){
                 decreaseProductCountInCart(item.id)
                 let product_count = document.getElementById(`${item.id}_product-count`)
+                if(!product_count){
+                    console.log('#4 Error')
+                    return;
+                }
                 let count = parseInt(product_count.textContent.trim())
                 if(count > 1){
                     count--;
                 }else{
                     let product_card_in_cart = document.getElementById(`${item.id}-product-card-in-cart`)
+                    if(!product_card_in_cart){
+                        console.log('#5 Error')
+                        return;
+                    }
                     product_card_in_cart.remove();
                 }
                 product_count.innerText = parseInt(product_count.innerText) - 1
+                // if(window.location.href.includes('cart-shipping.html')){
+                //     updateCartPage();
+                // }
             })
         })
     }
 
     function increamentInCartButton(){
         let increase_one_product = this.document.querySelectorAll('.increase-one-product')
+        if(!increase_one_product){
+            console.log('#6 Error')
+            return;
+        }
         increase_one_product.forEach((item)=>{
             if(!item){
                 return
@@ -167,7 +205,14 @@ window.addEventListener('DOMContentLoaded', function(){
             item.addEventListener('click', function(){
                 increaseProductCountInCart(item.id)
                 let product_count = document.getElementById(`${item.id}_product-count`)
+                if(!product_count){
+                    console.log('#7 Error')
+                    return;
+                }
                 product_count.innerText = parseInt(product_count.innerText) + 1
+                // if(window.location.href.includes('cart-shipping.html')){
+                //     updateCartPage();
+                // }
             })
         })
     }
@@ -202,6 +247,10 @@ window.addEventListener('DOMContentLoaded', function(){
         })
         .then((body)=>{
             let shop_products_row = document.getElementById('shop-products-row')
+            if(!shop_products_row){
+                console.log('#8 Error')
+                return;
+            }
             let allProducts = []
             body.forEach((item)=>{
                 let {id, name, category, description,  images, price, discount } = item
@@ -251,7 +300,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                                 </svg>
                                             </div>
                                         </div>
-                                        <h2 class="product-title">${name}</h2>
+                                        <h2 class="product-title force">${name}</h2>
                                         <div class="prices d-flex justify-content-start align-items-center gap-4">
                                             <h2 class="main-price">$${(discount > 0 && discount <= 100) ? price - (price * discount) : price}</h2>
                                             <h2 class="price-after-discount">${(discount > 0) ? '$'+price : ''}</h2>
@@ -264,7 +313,7 @@ window.addEventListener('DOMContentLoaded', function(){
                     </div>`
                 );
             })
-            shop_products_row.innerHTML = allProducts.join('');   //.slice(0, 4).join('');
+            shop_products_row.innerHTML = allProducts.join('');
         })
         .catch((e)=>{
             console.log(e.message);
@@ -273,12 +322,16 @@ window.addEventListener('DOMContentLoaded', function(){
             //  we put this code in fincally cause when we put it in out: the id not set to button in html cause
             //  the api not in the call and this code work before the api call ended
             let addToCard = document.querySelectorAll(".add-to-card");
+            if(!addToCard){
+                console.log('#9 Error')
+                return;
+            }
             addToCard.forEach((item)=>{
                 item.addEventListener('click', ()=>{
                     if(checkIfProductInCart(item.id)){
                         increaseProductCountInCart(item.id);
                         fillOffcanvesCartWithProducts();
-                        removeProductFromCartUI();
+                        // removeProductFromCartUI();
                         cartButtons();
                         return;
                     }
@@ -320,6 +373,10 @@ window.addEventListener('DOMContentLoaded', function(){
         }).then((body)=>{
             let mobileSwiper = document.getElementById('mobile-swiper');
             let desktop = document.getElementById('desktop-products');
+            if(!mobileSwiper || !desktop){
+                console.log('#15 Error')
+                return;
+            }
             let allProducts = []
             let desktopProducts = []
             body.forEach((item)=>{
@@ -371,7 +428,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                                                 </svg>
                                                             </div>
                                                         </div>
-                                                        <h2 class="product-title">${name}</h2>
+                                                        <h2 class="product-title force">${name}</h2>
                                                         <div class="prices d-flex justify-content-start align-items-center gap-4">
                                                             <h2 class="main-price">$${(discount > 0 && discount <= 100) ? price - (price * discount) : price}</h2>
                                                             <h2 class="price-after-discount">${(discount > 0) ? '$'+price : ''}</h2>
@@ -432,7 +489,7 @@ window.addEventListener('DOMContentLoaded', function(){
                                                 </svg>
                                             </div>
                                         </div>
-                                        <h2 class="product-title">${name}</h2>
+                                        <h2 class="product-title force">${name}</h2>
                                         <div class="prices d-flex justify-content-start align-items-center gap-4">
                                             <h2 class="main-price">$${(discount > 0 && discount <= 100) ? price - (price * discount) : price}</h2>
                                             <h2 class="price-after-discount">${(discount > 0) ? '$'+price : ''}</h2>
@@ -446,19 +503,23 @@ window.addEventListener('DOMContentLoaded', function(){
                 );
             })
             mobileSwiper.innerHTML =  allProducts.join('');
-            desktop.innerHTML = desktopProducts.join('');   //.slice(0, 4).join('');
+            desktop.innerHTML = desktopProducts.join('');
         }).catch((e)=>{
             console.log(`${e.statusCode}: ${e.message}`)
         }).finally(()=>{
             //  we put this code in fincally cause when we put it in out: the id not set to button in html cause
             //  the api not in the call and this code work before the api call ended
             let addToCard = document.querySelectorAll(".add-to-card");
+            if(!addToCard){
+                console.log('#10 Error')
+                return;
+            }
             addToCard.forEach((item)=>{
                 item.addEventListener('click', ()=>{
                     if(checkIfProductInCart(item.id)){
                         increaseProductCountInCart(item.id);
                         fillOffcanvesCartWithProducts();
-                        removeProductFromCartUI();
+                        // removeProductFromCartUI();
                         cartButtons();
                         return;
                     }
@@ -480,7 +541,7 @@ window.addEventListener('DOMContentLoaded', function(){
                         localStorage.setItem('cart', mergeProducts)
                         updateAllCartContentInUI();
                         cartButtons();
-                        removeProductFromCartUI();
+                        // removeProductFromCartUI();
                     }).catch((e)=>{
                         console.error(e.message);
                     }).finally();
@@ -527,6 +588,9 @@ window.addEventListener('DOMContentLoaded', function(){
         localStorage.setItem('cart', temp.join(''));
         updateCartCountInUI();
         injectTotalAmountInCart();
+        if(window.location.href.includes('cart-shipping.html')){
+            updateCartPage();
+        }
     }    
     
     function decreaseProductCountInCart(productID){
@@ -561,6 +625,9 @@ window.addEventListener('DOMContentLoaded', function(){
         localStorage.setItem('cart', temp.join(''));
         updateCartCountInUI();
         injectTotalAmountInCart();
+        if(window.location.href.includes('cart-shipping.html')){
+            updateCartPage();
+        }
     }
 
     function removeFromCart(productID){
@@ -601,6 +668,10 @@ window.addEventListener('DOMContentLoaded', function(){
 
     function updateCartCountInUI(){
         let count_of_products_in_cart = document.getElementsByClassName('count-of-products-in-cart');
+        if(!count_of_products_in_cart){
+            console.log('#11 Error')
+            return;
+        }
         for(let i = 0; i < count_of_products_in_cart.length; i++){
             count_of_products_in_cart[i].innerText = getCountOfProductsInCart()
         }
@@ -612,6 +683,10 @@ window.addEventListener('DOMContentLoaded', function(){
             return
         }
         let cart_body_products = this.document.getElementById('cart-body-products');
+        if(!cart_body_products){
+            console.log('#12 Error')
+            return;
+        }
         let allProducts = [];
         products.forEach((item) => {
             let product = JSON.parse(item.product)
@@ -628,7 +703,7 @@ window.addEventListener('DOMContentLoaded', function(){
                             </div>
                             <div class="col-7 full-height">
                                 <div class="middlie-sec-in-card d-flex flex-column justify-content-center align-items-start gap-3">
-                                    <h2 class="product-title">${product.name}</h2>
+                                    <h2 class="product-title force">${product.name}</h2>
                                     <span class="product-color">${product.images[0].color}</span>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button id="${product.id}" type="button" class="decrease-one-product btn btn-primary">-</button>
@@ -651,6 +726,85 @@ window.addEventListener('DOMContentLoaded', function(){
         injectTotalAmountInCart();
     }
 
+    function fullCartPageWithProducts(){
+        let cartItems = [];
+        let cart_items = document.getElementById('cart-items');
+        if(!cart_items){
+            console.log('#13 Error')
+            return;
+        }
+        let products = getCartItemsJSON();
+        if(!products){
+            cart_items.innerHTML = `
+                <div class="p-3 rounded-3 d-flex justify-content-center align-items-center border border-danger bg-danger">
+                    <h2 class="mb-0">There is no items in cart :(</h2>
+                </div>
+            `
+            return
+        }
+        products.forEach((item)=>{
+            let product = JSON.parse(item.product)
+            let count = JSON.parse(item.count);
+            cartItems.push(`
+                <div class="${product.id}-product-card-in-cart">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
+                                <a href="product.html">
+                                    <div class="prod-img-sec-42 ">
+                                        <img src="${product.images[0].url}" alt="product">
+                                    </div>
+                                </a>
+                                <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
+                                    <h2>${product.name}</h2>
+                                    <p>Color: ${product.images[0].color}</p>
+                                    <button id="${product.id}_remove-from-cart" type="button" class="remove-from-cart d-lg-block d-none btn-close" aria-label="Close"></button>
+                                    <div class="quantity d-lg-none d-block">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                            <div id="${product.id}_product-count" type="button" class="btn">${count}</div>
+                                            <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
+                            <div class="quantity">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                    <div id="${product.id}_product-count" type="button" class="btn">${count}</div>
+                                    <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
+                            <span>$${product.discount > 0 ? (product.price - (product.price * product.discount)) : product.price}</span>
+                        </div>
+                        <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
+                            <span>$${parseFloat(product.discount > 0 ? (product.price - (product.price * product.discount)) : product.price) * parseFloat(count)}</span>
+                        </div>
+                        <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
+                            <div class="w-100 d-flex flex-column justify-content-end align-items-end">
+                                <span>$${product.discount > 0 ? (product.price - (product.price * product.discount)) : product.price}</span>
+                                <button id="${product.id}_remove-from-cart" type="button" class="remove-from-cart btn-close" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <hr class="w-100 hr-cart-light">
+                        </div>
+                    </div>
+                </div>
+            `)
+        })
+        cart_items.innerHTML = cartItems.join('');
+        cartButtons();  
+    }
+
+    function updateCartPage(){
+        fullCartPageWithProducts()
+    }
+
     function updateAllCartContentInUI(){
         updateCartCountInUI();
         fillOffcanvesCartWithProducts();
@@ -661,7 +815,7 @@ window.addEventListener('DOMContentLoaded', function(){
         if(!products){
             return 0.00
         }
-        let total = 0;
+        let total = 0.00;
         products.forEach((item)=>{
             let product = JSON.parse(item.product);
             let count = parseFloat(1 * item.count);
@@ -676,75 +830,93 @@ window.addEventListener('DOMContentLoaded', function(){
     
     function injectTotalAmountInCart(){
         let total_amount = document.querySelectorAll('.total-amount')
+        if(!total_amount){
+            console.log('#14 Error')
+            return;
+        }
         total_amount.forEach((item)=>{
             item.innerText = `$${calculateTotalAmountOfCartProducts()}`
         })
     }
 
     function reArrangeItemsInGrid_1(){
-        let grid = document.querySelectorAll('#shop-products-row.grid-shape-9')
-        let gridFirst = document.querySelectorAll('.grid-9-first')
-        let gridSecond = document.querySelectorAll('.grid-9-second')
-        let gridThird = document.querySelectorAll('.grid-9-third')
-        let addToCartGrid1 = document.querySelectorAll('.gird1-add-to-cart')
+        let gridFirst = document.querySelectorAll('.grid-9-first')  //each product box
+        let gridSecond = document.querySelectorAll('.grid-9-second')    //top section of each card
+        let gridThird = document.querySelectorAll('.grid-9-third')  //bottom section of each card
+        let addToCartGrid1 = document.querySelectorAll('.gird1-add-to-cart') //each hidden button (add to cart)
         let addToCart = document.querySelectorAll('.d-block.add-to-card')
-
+        if(!gridFirst || !gridSecond || !gridThird || !addToCartGrid1 || addToCart){
+            console.log('#14 Error')
+            return;
+        }
         gridFirst.forEach((item)=>{
-            item.classList.toggle('col-lg-12')
+            item.classList.add('col-lg-12')
             item.classList.add('p-3')
         })
-
         gridSecond.forEach((item)=>{
-
-            item.classList.toggle('col-lg-6')
+            item.classList.add('col-lg-6')
             item.classList.add('p-3')
         })
-
         gridThird.forEach((item)=>{
-            item.classList.toggle('col-lg-6')
+            item.classList.add('col-lg-6')
             item.classList.add('p-3')
         })
-
         addToCart.forEach((item)=>{
             item.classList.remove('d-block')
             item.classList.add('d-none')
         })
-    
         addToCartGrid1.forEach((item)=>{
-            item.classList.toggle('d-none')
+            item.classList.remove('d-none')
         })
     }
 
     function reArrangeItemsInGrid_9(){
-        let grid = document.querySelectorAll('#shop-products-row.grid-shape-9')
         let gridFirst = document.querySelectorAll('.grid-9-first')
         let gridSecond = document.querySelectorAll('.grid-9-second')
         let gridThird = document.querySelectorAll('.grid-9-third')  
         let addToCartGrid1 = document.querySelectorAll('.gird1-add-to-cart')
-        let addToCart = document.querySelectorAll('.d-block.add-to-card')
-
+        let addToCart = document.querySelectorAll('.d-none.add-to-card')
+        if(!gridFirst || !gridSecond || !gridThird || !addToCartGrid1 || addToCart){
+            console.log('#15 Error')
+            return;
+        }
         gridFirst.forEach((item)=>{
-            item.classList.toggle('col-lg-12')
-            item.classList.toggle('p-3')
+            item.classList.remove('col-lg-12')
+            item.classList.remove('p-3')
         })
-
         gridSecond.forEach((item)=>{
-            item.classList.toggle('col-lg-6')
-            item.classList.toggle('p-3')
+            item.classList.remove('col-lg-6')
+            item.classList.remove('p-3')
         })
-
         gridThird.forEach((item)=>{
-            item.classList.toggle('col-lg-6')
-            item.classList.toggle('p-3')
+            item.classList.remove('col-lg-6')
+            item.classList.remove('p-3')
         })
-
         addToCart.forEach((item)=>{
-            item.classList.remove('d-none')
             item.classList.add('d-block')
-        })
-
-        addToCartGrid1.forEach((item)=>{
             item.classList.remove('d-none')
+        })
+        addToCartGrid1.forEach((item)=>{
+            item.classList.add('d-none')
+        })
+        gridFirst.forEach((item)=>{
+            item.classList.remove('col-lg-12')
+            item.classList.remove('p-3')
+        })
+        gridSecond.forEach((item)=>{
+            item.classList.remove('col-lg-6')
+            item.classList.remove('p-3')
+        })
+        gridThird.forEach((item)=>{
+            item.classList.remove('col-lg-6')
+            item.classList.remove('p-3')
+        })
+        addToCart.forEach((item)=>{
+            item.classList.add('d-block')
+            item.classList.remove('d-none')
+        })
+        addToCartGrid1.forEach((item)=>{
+            item.classList.add('d-none')
         })
     }
 

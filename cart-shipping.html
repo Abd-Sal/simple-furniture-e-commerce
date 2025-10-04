@@ -196,13 +196,13 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-3">
-                        <div class="cart-step d-flex pt-3 pb-3 justify-content-center align-items-lg-start align-items-center gap-3 ">
+                        <div class="cart-step d-flex pt-3 pb-3 justify-content-center align-items-center gap-3 ">
                             <div class="circuil">2</div>
                             <span class="d-none d-lg-inline">Checkout details</span>
                         </div>
                     </div>
                     <div class="col-lg-4 d-none d-lg-block">
-                        <div class="cart-step d-flex pt-3 pb-3 justify-content-center align-items-lg-start align-items-center gap-3 ">
+                        <div class="cart-step d-flex pt-3 pb-3 justify-content-center align-items-center gap-3 ">
                             <div class="circuil">3</div>
                             <span>Order complete</span>
                         </div>
@@ -215,7 +215,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="row d-none d-lg-flex">
+                        <div class="row d-none d-lg-flex" >
                             <div class="col-lg-6">
                                 <div class="head-line d-flex justify-content-start align-items-center">
                                     <span>product</span>
@@ -238,193 +238,148 @@
                                 <hr class="w-100 black">
                             </div>
                         </div>
-                        <div class="product">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
-                                        <div class="prod-img-sec-42 ">
-                                            <img src="assets/imgs/Black-Tray-table.jpg" alt="product">
-                                        </div>
-                                        <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
-                                            <h2>Tray Table</h2>
-                                            <p>Color: Black</p>
-                                            <button class="btn d-lg-block d-none"><i class="fa-solid fa-xmark"></i> Remove</button>
-                                            <div class="quantity d-lg-none d-block">
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                                    <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                                    <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                        <div id="cart-items">
+                            <!-- <div class="product">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
+                                            <div class="prod-img-sec-42 ">
+                                                <img src="assets/imgs/Black-Tray-table.jpg" alt="product">
+                                            </div>
+                                            <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
+                                                <h2>Tray Table</h2>
+                                                <p>Color: Black</p>
+                                                <button id="${product.id}_remove-from-cart" type="button" class="remove-from-cart d-lg-block d-none btn-close" aria-label="Close"></button>
+                                                <div class="quantity d-lg-none d-block">
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                                        <div id="${product.id}_product-count" type="button" class="btn">1</div>
+                                                        <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
-                                    <div class="quantity">
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                            <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                            <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
+                                        <div class="quantity">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                                <div id="${product.id}_product-count" type="button" class="btn">1</div>
+                                                <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
-                                    <span>$19.00</span>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
-                                    <span>$38.00</span>
-                                </div>
-                                <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
-                                    <div class="w-100 d-flex flex-column justify-content-end align-items-end">
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
                                         <span>$19.00</span>
-                                        <button class="btn"><i class="fa-solid fa-x"></i></button>
+                                    </div>
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
+                                        <span>$38.00</span>
+                                    </div>
+                                    <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
+                                        <div class="w-100 d-flex flex-column justify-content-end align-items-end">
+                                            <span>$19.00</span>
+                                            <button class="btn"><i class="fa-solid fa-x"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <hr class="w-100 hr-cart-light">
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <hr class="w-100 hr-cart-light">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
-                                        <div class="prod-img-sec-42 ">
-                                            <img src="assets/imgs/Black-Tray-table.jpg" alt="product">
-                                        </div>
-                                        <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
-                                            <h2>Tray Table</h2>
-                                            <p>Color: Black</p>
-                                            <button class="btn d-lg-block d-none"><i class="fa-solid fa-xmark"></i> Remove</button>
-                                            <div class="quantity d-lg-none d-block">
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                                    <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                                    <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                            </div> -->
+                            <!-- <div class="product">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
+                                            <div class="prod-img-sec-42 ">
+                                                <img src="assets/imgs/Black-Tray-table.jpg" alt="product">
+                                            </div>
+                                            <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
+                                                <h2>Tray Table</h2>
+                                                <p>Color: Black</p>
+                                                <button class="btn d-lg-block d-none"><i class="fa-solid fa-xmark"></i> Remove</button>
+                                                <div class="quantity d-lg-none d-block">
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                                        <div id="${product.id}_product-count" type="button" class="btn">1</div>
+                                                        <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
-                                    <div class="quantity">
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                            <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                            <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
+                                        <div class="quantity">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                                <div id="${product.id}_product-count" type="button" class="btn">1</div>
+                                                <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
-                                    <span>$19.00</span>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
-                                    <span>$38.00</span>
-                                </div>
-                                <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
-                                    <div class="w-100 d-flex flex-column justify-content-end align-items-end">
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
                                         <span>$19.00</span>
-                                        <button class="btn"><i class="fa-solid fa-x"></i></button>
+                                    </div>
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
+                                        <span>$38.00</span>
+                                    </div>
+                                    <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
+                                        <div class="w-100 d-flex flex-column justify-content-end align-items-end">
+                                            <span>$19.00</span>
+                                            <button class="btn"><i class="fa-solid fa-x"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <hr class="w-100 hr-cart-light">
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <hr class="w-100 hr-cart-light">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
-                                        <div class="prod-img-sec-42 ">
-                                            <img src="assets/imgs/Black-Tray-table.jpg" alt="product">
-                                        </div>
-                                        <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
-                                            <h2>Tray Table</h2>
-                                            <p>Color: Black</p>
-                                            <button class="btn d-lg-block d-none"><i class="fa-solid fa-xmark"></i> Remove</button>
-                                            <div class="quantity d-lg-none d-block">
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                                    <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                                    <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                            </div> -->
+                            <!-- <div class="product">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
+                                            <div class="prod-img-sec-42 ">
+                                                <img src="assets/imgs/Black-Tray-table.jpg" alt="product">
+                                            </div>
+                                            <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
+                                                <h2>Tray Table</h2>
+                                                <p>Color: Black</p>
+                                                <button class="btn d-lg-block d-none"><i class="fa-solid fa-xmark"></i> Remove</button>
+                                                <div class="quantity d-lg-none d-block">
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                                        <div id="${product.id}_product-count" type="button" class="btn">1</div>
+                                                        <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
-                                    <div class="quantity">
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                            <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                            <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
-                                    <span>$19.00</span>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
-                                    <span>$38.00</span>
-                                </div>
-                                <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
-                                    <div class="w-100 d-flex flex-column justify-content-end align-items-end">
-                                        <span>$19.00</span>
-                                        <button class="btn"><i class="fa-solid fa-x"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr class="w-100 hr-cart-light">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="left-sec-of-cart-42 d-flex justify-content-start align-items-center">
-                                        <div class="prod-img-sec-42 ">
-                                            <img src="assets/imgs/Black-Tray-table.jpg" alt="product">
-                                        </div>
-                                        <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
-                                            <h2>Tray Table</h2>
-                                            <p>Color: Black</p>
-                                            <button class="btn d-lg-block d-none"><i class="fa-solid fa-xmark"></i> Remove</button>
-                                            <div class="quantity d-lg-none d-block">
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                                    <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                                    <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
-                                                </div>
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
+                                        <div class="quantity">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                                <div id="${product.id}_product-count" type="button" class="btn">1</div>
+                                                <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
-                                    <div class="quantity">
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
-                                            <div id="${product.id}_product-count" type="button" class="btn">1</div>
-                                            <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
+                                        <span>$19.00</span>
+                                    </div>
+                                    <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
+                                        <span>$38.00</span>
+                                    </div>
+                                    <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
+                                        <div class="w-100 d-flex flex-column justify-content-end align-items-end">
+                                            <span>$19.00</span>
+                                            <button class="btn"><i class="fa-solid fa-x"></i></button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-center align-items-center">
-                                    <span>$19.00</span>
-                                </div>
-                                <div class="col-lg-2 d-none d-lg-flex justify-content-end align-items-center">
-                                    <span>$38.00</span>
-                                </div>
-                                <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
-                                    <div class="w-100 d-flex flex-column justify-content-end align-items-end">
-                                        <span>$19.00</span>
-                                        <button class="btn"><i class="fa-solid fa-x"></i></button>
+                                    <div class="col-lg-12">
+                                        <hr class="w-100 hr-cart-light">
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <hr class="w-100 hr-cart-light">
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-lg-4 d-lg-block d-none">
