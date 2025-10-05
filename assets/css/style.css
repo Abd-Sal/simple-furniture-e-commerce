@@ -1319,6 +1319,11 @@ footer {
     border: 1px solid var(--main-color);
     color: var(--main-color);
 }
+.disabled{
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 @media screen and (max-width: 768px){
     .index-left-sec-2 > h2{
         font-size: 350%;

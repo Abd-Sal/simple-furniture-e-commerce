@@ -65,6 +65,10 @@ window.addEventListener('DOMContentLoaded', function(){
     // Your custom options for a specific gallery
     });
     
+    Fancybox.bind('[data-fancybox="gallery-2"]', {
+    // Your custom options for a specific gallery
+    });
+    
     AOS.init();
 
     let closeBtn = this.document.getElementById('close');
@@ -87,8 +91,6 @@ window.addEventListener('DOMContentLoaded', function(){
     updateCartCountInUI();
     fillOffcanvesCartWithProducts();
     injectTotalAmountInCart();
-    cartButtons();
-    // removeProductFromCartUI();
 
     if (window.location.pathname.includes('index.html') || 
         window.location.href.includes('index.html')){
@@ -101,8 +103,6 @@ window.addEventListener('DOMContentLoaded', function(){
     if(this.window.location.href.includes('cart-shipping.html')){
         updateCartPage();
     }
-
-
 
     if(this.window.location.href.includes('shop.html')){
         let gird1 = document.getElementById('grid-1');
@@ -118,105 +118,66 @@ window.addEventListener('DOMContentLoaded', function(){
             reArrangeItemsInGrid_9()
         })
     }
-
-
     
     //functions
-    function cartButtons(){
-        removeProductFromCartUI();
-        decreamentInCartButton();
-        increamentInCartButton();
-    }
-
-    function removeProductFromCartUI(){
-        let remove_btns = document.querySelectorAll(`.remove-from-cart`)
-        if(!remove_btns){
-            console.log('#1 Error')
+    this.window.removeProductFromCartUI = function(id){
+        if(!id){
+            console.log('#Error decreamentProduct()')
+            return
+        }
+        let product_card_in_cart = document.getElementById(`${id}-product-card-in-cart`)
+        if(!product_card_in_cart){
+            console.log('#2 Error')
             return;
         }
-        remove_btns.forEach((item)=>{
-            if(!item){
+        product_card_in_cart.remove();
+        removeFromCart(id);
+        updateCartCountInUI();
+        if(this.window.location.href.includes('cart-shipping.html')){
+            updateCartPage();
+        }
+        injectTotalAmountInCart();
+    }
+
+    this.window.decreamentProduct = function(id){
+        if(!id){
+            console.log('#Error decreamentProduct()')
+            return
+        }
+        decreaseProductCountInCart(id)
+        let product_count = document.getElementById(`${id}_product-count`)
+        if(!product_count){
+            console.log('#4 Error')
+            return;
+        }
+        let count = parseInt(product_count.textContent.trim())
+        if(count > 1){
+            count--;
+        }else{
+            let product_card_in_cart = document.getElementById(`${id}-product-card-in-cart`)
+            if(!product_card_in_cart){
+                console.log('#5 Error')
                 return;
             }
-            item.addEventListener('click', function(){
-                let id = item.id.split('_')[0]
-                let product_card_in_cart = document.getElementById(`${id}-product-card-in-cart`)
-                if(!product_card_in_cart){
-                    console.log('#2 Error')
-                    return;
-                }
-                product_card_in_cart.remove();
-                removeFromCart(id);
-                updateCartCountInUI();
-                injectTotalAmountInCart();
-                // if(window.location.href.includes('cart-shipping.html')){
-                //     updateCartPage();
-                // }
-            })
-        })
+            product_card_in_cart.remove();
+        }
+        product_count.innerText = parseInt(product_count.textContent.trim()) - 1
     }
 
-    function decreamentInCartButton(){
-        let decrease_one_product = this.document.querySelectorAll('.decrease-one-product')
-        if(!decrease_one_product){
-            console.log('#3 Error')
+    this.window.increamentProduct =  function(id){
+        if(!id){
+            console.log('#Error increamentProduct()')
+            return
+        }
+        increaseProductCountInCart(id)
+        let product_count = document.getElementById(`${id}_product-count`)
+        if(!product_count){
+            console.log('#7 Error')
             return;
         }
-        decrease_one_product.forEach((item)=>{
-            if(!item){
-                return
-            }
-            item.addEventListener('click', function(){
-                decreaseProductCountInCart(item.id)
-                let product_count = document.getElementById(`${item.id}_product-count`)
-                if(!product_count){
-                    console.log('#4 Error')
-                    return;
-                }
-                let count = parseInt(product_count.textContent.trim())
-                if(count > 1){
-                    count--;
-                }else{
-                    let product_card_in_cart = document.getElementById(`${item.id}-product-card-in-cart`)
-                    if(!product_card_in_cart){
-                        console.log('#5 Error')
-                        return;
-                    }
-                    product_card_in_cart.remove();
-                }
-                product_count.innerText = parseInt(product_count.innerText) - 1
-                // if(window.location.href.includes('cart-shipping.html')){
-                //     updateCartPage();
-                // }
-            })
-        })
+        product_count.innerText = parseInt(product_count.textContent.trim()) + 1
     }
 
-    function increamentInCartButton(){
-        let increase_one_product = this.document.querySelectorAll('.increase-one-product')
-        if(!increase_one_product){
-            console.log('#6 Error')
-            return;
-        }
-        increase_one_product.forEach((item)=>{
-            if(!item){
-                return
-            }
-            item.addEventListener('click', function(){
-                increaseProductCountInCart(item.id)
-                let product_count = document.getElementById(`${item.id}_product-count`)
-                if(!product_count){
-                    console.log('#7 Error')
-                    return;
-                }
-                product_count.innerText = parseInt(product_count.innerText) + 1
-                // if(window.location.href.includes('cart-shipping.html')){
-                //     updateCartPage();
-                // }
-            })
-        })
-    }
-    
     function getCartItemsJSON(){
         let itemCart = localStorage.getItem('cart');
         if(!itemCart){
@@ -519,8 +480,6 @@ window.addEventListener('DOMContentLoaded', function(){
                     if(checkIfProductInCart(item.id)){
                         increaseProductCountInCart(item.id);
                         fillOffcanvesCartWithProducts();
-                        // removeProductFromCartUI();
-                        cartButtons();
                         return;
                     }
                     fetch(`http://localhost:5000/api/products/${item.id}`)
@@ -540,8 +499,6 @@ window.addEventListener('DOMContentLoaded', function(){
                         let mergeProducts = `${products == null ? '' : products}${product}`;
                         localStorage.setItem('cart', mergeProducts)
                         updateAllCartContentInUI();
-                        cartButtons();
-                        // removeProductFromCartUI();
                     }).catch((e)=>{
                         console.error(e.message);
                     }).finally();
@@ -706,16 +663,16 @@ window.addEventListener('DOMContentLoaded', function(){
                                     <h2 class="product-title force">${product.name}</h2>
                                     <span class="product-color">${product.images[0].color}</span>
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button id="${product.id}" type="button" class="decrease-one-product btn btn-primary">-</button>
+                                        <button id="${product.id}" onclick="decreamentProduct('${product.id}')" type="button" class="decrease-one-product btn btn-primary">-</button>
                                         <div id="${product.id}_product-count" type="button" class="btn btn-primary">${count}</div>
-                                        <button id="${product.id}" type="button" class="increase-one-product btn btn-primary">+</button>
+                                        <button id="${product.id}" onclick="increamentProduct('${product.id}')" type="button" class="increase-one-product btn btn-primary">+</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2 full-height">
                                 <div class="last-sec-in-card d-flex flex-column justify-content-center align-items-center gap-3">
                                     <h2 class="product-price">$${product.discount > 0 ? (product.price - (product.price * product.discount)) : product.price}</h2>
-                                    <button id="${product.id}_remove-from-cart" type="button" class="remove-from-cart btn-close" aria-label="Close"></button>
+                                    <button id="${product.id}_remove-from-cart" onclick="removeProductFromCartUI('${product.id}')" type="button" class="remove-from-cart btn-close" aria-label="Close"></button>
                                 </div>
                             </div>
                         </div>
@@ -725,7 +682,7 @@ window.addEventListener('DOMContentLoaded', function(){
         cart_body_products.innerHTML = allProducts.join('');
         injectTotalAmountInCart();
     }
-
+    
     function fullCartPageWithProducts(){
         let cartItems = [];
         let cart_items = document.getElementById('cart-items');
@@ -736,10 +693,10 @@ window.addEventListener('DOMContentLoaded', function(){
         let products = getCartItemsJSON();
         if(!products){
             cart_items.innerHTML = `
-                <div class="p-3 rounded-3 d-flex justify-content-center align-items-center border border-danger bg-danger">
+                <div id="no-content" class="disabled p-3 rounded-3 d-flex justify-content-center align-items-center border border-danger bg-danger">
                     <h2 class="mb-0">There is no items in cart :(</h2>
                 </div>
-            `
+            `;
             return
         }
         products.forEach((item)=>{
@@ -758,12 +715,12 @@ window.addEventListener('DOMContentLoaded', function(){
                                 <div class="details-sec-42 full-height d-flex gap-3 flex-column justify-content-center align-items-center">
                                     <h2>${product.name}</h2>
                                     <p>Color: ${product.images[0].color}</p>
-                                    <button id="${product.id}_remove-from-cart" type="button" class="remove-from-cart d-lg-block d-none btn-close" aria-label="Close"></button>
+                                    <button id="${product.id}_remove-from-cart" onclick="removeProductFromCartUI('${product.id}')" type="button" class="remove-from-cart d-lg-block d-none btn-close" aria-label="Close"></button>
                                     <div class="quantity d-lg-none d-block">
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                            <button id="${product.id}" onclick="decreamentProduct('${product.id}')" type="button" class="decrease-one-product btn">-</button>
                                             <div id="${product.id}_product-count" type="button" class="btn">${count}</div>
-                                            <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                            <button id="${product.id}" onclick="increamentProduct('${product.id}')" type="button" class="increase-one-product btn">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -772,9 +729,9 @@ window.addEventListener('DOMContentLoaded', function(){
                         <div class="col-lg-2 d-none d-lg-flex justify-content-start align-items-center">
                             <div class="quantity">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button id="${product.id}" type="button" class="decrease-one-product btn">-</button>
+                                    <button id="${product.id}" onclick="decreamentProduct('${product.id}')" type="button" class="decrease-one-product btn">-</button>
                                     <div id="${product.id}_product-count" type="button" class="btn">${count}</div>
-                                    <button id="${product.id}" type="button" class="increase-one-product btn">+</button>
+                                    <button id="${product.id}" onclick="increamentProduct('${product.id}')" type="button" class="increase-one-product btn">+</button>
                                 </div>
                             </div>
                         </div>
@@ -787,7 +744,7 @@ window.addEventListener('DOMContentLoaded', function(){
                         <div class="col-6 d-lg-none d-flex justify-content-end align-items-start">
                             <div class="w-100 d-flex flex-column justify-content-end align-items-end">
                                 <span>$${product.discount > 0 ? (product.price - (product.price * product.discount)) : product.price}</span>
-                                <button id="${product.id}_remove-from-cart" type="button" class="remove-from-cart btn-close" aria-label="Close"></button>
+                                <button id="${product.id}_remove-from-cart"  onclick="removeProductFromCartUI('${product.id}')"  type="button" class="remove-from-cart btn-close" aria-label="Close"></button>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -798,11 +755,37 @@ window.addEventListener('DOMContentLoaded', function(){
             `)
         })
         cart_items.innerHTML = cartItems.join('');
-        cartButtons();  
     }
 
     function updateCartPage(){
         fullCartPageWithProducts()
+        injectTotalAfterShippingOnLoad();
+        injectTotalAmountAfterShipping();
+        let checkoutBtn = document.getElementById('checkout-from-cart-page');
+        let coupon_panel = document.querySelectorAll('.coupon-panel');
+        if(getCountOfProductsInCart() === 0){
+            console.log('no content')
+            let subTotal_after_shipping = document.querySelectorAll('.subTotal-after-shipping')
+            let total_after_shipping = document.querySelectorAll('.total-after-shipping')
+            for(let i = 0; i < subTotal_after_shipping.length; i++){
+                subTotal_after_shipping[i].innerText = `$0`
+            }
+            for(let i = 0; i < total_after_shipping.length; i++){
+                total_after_shipping[i].innerText = `$0`
+            }
+            activeCheckedShippingBox();
+            checkoutBtn.classList.add('disabled')
+            for(let i = 0; i < coupon_panel.length; i++){
+                coupon_panel[i].classList.add('bg-danger')
+                coupon_panel[i].classList.add('disabled')
+            }
+        }else{
+            checkoutBtn.classList.remove('disabled')
+            for(let i = 0; i < coupon_panel.length; i++){
+                coupon_panel[i].classList.remove('bg-danger')
+                coupon_panel[i].classList.remove('disabled')
+            }
+        }
     }
 
     function updateAllCartContentInUI(){
@@ -815,7 +798,7 @@ window.addEventListener('DOMContentLoaded', function(){
         if(!products){
             return 0.00
         }
-        let total = 0.00;
+        let total = 0;
         products.forEach((item)=>{
             let product = JSON.parse(item.product);
             let count = parseFloat(1 * item.count);
@@ -825,7 +808,7 @@ window.addEventListener('DOMContentLoaded', function(){
                 total += ((parseFloat(product.price) - (parseFloat(product.price) * parseFloat(product.discount))) * count);
             }
         })
-        return parseFloat(total);
+        return parseFloat(total.toFixed(3));
     }
     
     function injectTotalAmountInCart(){
@@ -920,4 +903,56 @@ window.addEventListener('DOMContentLoaded', function(){
         })
     }
 
+    function calculateTotalAmountAfterShipping(){
+        let totalAmountInCart = calculateTotalAmountOfCartProducts()
+        let ship_way = document.querySelectorAll('input[type="radio"]:checked.ship-way')
+        if(!ship_way)
+            return;
+        let value = parseFloat(ship_way[0].value).toFixed(3);
+        let temp = 1 * totalAmountInCart + 1 * value;
+        return temp;
+    }
+
+    function injectTotalAmountAfterShipping(){
+        let ship_way = document.querySelectorAll('.ship-way')
+        ship_way.forEach((item)=>{
+            item.addEventListener('change', function(){
+                let subTotal_after_shipping = document.querySelectorAll('.subTotal-after-shipping')
+                let total_after_shipping = document.querySelectorAll('.total-after-shipping')
+                let temp = calculateTotalAmountAfterShipping();
+                for(let i = 0; i < subTotal_after_shipping.length; i++){
+                    subTotal_after_shipping[i].innerText = `$${temp}`
+                }
+                for(let i = 0; i < total_after_shipping.length; i++){
+                    total_after_shipping[i].innerText = `$${temp}`
+                }
+                activeCheckedShippingBox();                
+            });
+        })
+    }
+
+    function activeCheckedShippingBox(){
+        let shipping_way = document.querySelectorAll('.shipping-way');
+        shipping_way.forEach((item)=>{
+            item.classList.remove('active');
+        })
+        let active = document.querySelectorAll('.shipping-way:has(input[type="radio"]:checked)')
+        active = active[0];
+        if(!active)
+            return;
+        active.classList.add('active');
+    }
+
+    function injectTotalAfterShippingOnLoad(){
+        let subTotal_after_shipping = document.querySelectorAll('.subTotal-after-shipping')
+        let total_after_shipping = document.querySelectorAll('.total-after-shipping')
+        let temp = calculateTotalAmountAfterShipping();
+        for(let i = 0; i < subTotal_after_shipping.length; i++){
+            subTotal_after_shipping[i].innerText = `$${temp}`
+        }
+        for(let i = 0; i < total_after_shipping.length; i++){
+            total_after_shipping[i].innerText = `$${temp}`
+        }
+        activeCheckedShippingBox();
+    }
 })
