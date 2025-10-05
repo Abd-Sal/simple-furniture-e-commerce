@@ -1324,11 +1324,6 @@ footer {
     opacity: 0.6;
     cursor: not-allowed;
 }
-form .checkout-details input[type="email"]:invalid,
-form .checkout-details input[type="text"]:invalid,
-form .checkout-details input[type="password"]:invalid{
-    background-color: red;
-}
 @media screen and (max-width: 768px){
     .index-left-sec-2 > h2{
         font-size: 350%;
@@ -1366,20 +1361,6 @@ form .checkout-details input[type="password"]:invalid{
         width: 40% !important;
     }
 }
-
-/* @media (min-width: 768px) {
-    .w-md-100 { width: 100% !important; }
-    .w-md-75 { width: 75% !important; }
-}
-@media (min-width: 992px) {
-    .w-lg-100 { width: 100% !important; }
-    .w-lg-75 { width: 75% !important; }
-}
-@media (min-width: 576px) {
-    .w-sm-100 { width: 100% !important; }
-    .w-sm-75 { width: 75% !important; }
-} */
-
 @media (min-width: 768px) {
     .w-md-100 { width: 100% !important; }
     .w-md-75 { width: 75% !important; }
