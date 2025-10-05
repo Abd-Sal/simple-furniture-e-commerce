@@ -895,7 +895,7 @@ hr{
 .shipping-way{
     border: 1px solid #000;
 }
-.pay-way,
+.pay-way.active,
 .shipping-way.active{
     background-color: #F3F5F7;
 }
@@ -1323,6 +1323,11 @@ footer {
     pointer-events: none;
     opacity: 0.6;
     cursor: not-allowed;
+}
+form .checkout-details input[type="email"]:invalid,
+form .checkout-details input[type="text"]:invalid,
+form .checkout-details input[type="password"]:invalid{
+    background-color: red;
 }
 @media screen and (max-width: 768px){
     .index-left-sec-2 > h2{

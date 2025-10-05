@@ -104,6 +104,18 @@ window.addEventListener('DOMContentLoaded', function(){
         updateCartPage();
     }
 
+    if(this.window.location.href.includes('cart-step-checkout.html')){
+        fillOrderSummery();
+        activePaymentMethodOnLoad();
+        activeCheckedPaymentMethod();
+        placeOrder();
+    }
+
+    if(this.window.location.href.includes('cart-order-complete.html')){
+        injectDateAndTotalAmountInCongratulationPage();
+        fillCongratulationsCard();
+    }
+
     if(this.window.location.href.includes('shop.html')){
         let gird1 = document.getElementById('grid-1');
         let gird9 = document.getElementById('grid-9');
@@ -135,6 +147,11 @@ window.addEventListener('DOMContentLoaded', function(){
         updateCartCountInUI();
         if(this.window.location.href.includes('cart-shipping.html')){
             updateCartPage();
+        }
+        if(this.window.location.href.includes('cart-step-checkout.html')){
+            fillOrderSummery();
+            activePaymentMethodOnLoad();
+            activeCheckedPaymentMethod();
         }
         injectTotalAmountInCart();
     }
@@ -548,6 +565,11 @@ window.addEventListener('DOMContentLoaded', function(){
         if(window.location.href.includes('cart-shipping.html')){
             updateCartPage();
         }
+        if(this.window.location.href.includes('cart-step-checkout.html')){
+            fillOrderSummery();
+            activePaymentMethodOnLoad();
+            activeCheckedPaymentMethod();
+        }
     }    
     
     function decreaseProductCountInCart(productID){
@@ -584,6 +606,11 @@ window.addEventListener('DOMContentLoaded', function(){
         injectTotalAmountInCart();
         if(window.location.href.includes('cart-shipping.html')){
             updateCartPage();
+        }
+        if(this.window.location.href.includes('cart-step-checkout.html')){
+            fillOrderSummery();
+            activePaymentMethodOnLoad();
+            activeCheckedPaymentMethod();
         }
     }
 
@@ -759,12 +786,12 @@ window.addEventListener('DOMContentLoaded', function(){
 
     function updateCartPage(){
         fullCartPageWithProducts()
+        activeCheckedShippingBox();
         injectTotalAfterShippingOnLoad();
         injectTotalAmountAfterShipping();
         let checkoutBtn = document.getElementById('checkout-from-cart-page');
         let coupon_panel = document.querySelectorAll('.coupon-panel');
-        if(getCountOfProductsInCart() === 0){
-            console.log('no content')
+        if(parseInt(getCountOfProductsInCart()) === 0){
             let subTotal_after_shipping = document.querySelectorAll('.subTotal-after-shipping')
             let total_after_shipping = document.querySelectorAll('.total-after-shipping')
             for(let i = 0; i < subTotal_after_shipping.length; i++){
@@ -785,7 +812,16 @@ window.addEventListener('DOMContentLoaded', function(){
                 coupon_panel[i].classList.remove('bg-danger')
                 coupon_panel[i].classList.remove('disabled')
             }
+            fullCartPageWithProducts()
+            activeCheckedShippingBox();
+            injectTotalAfterShippingOnLoad();
+            injectTotalAmountAfterShipping();
+
         }
+        // fullCartPageWithProducts()
+        // activeCheckedShippingBox();
+        // injectTotalAfterShippingOnLoad();
+        // injectTotalAmountAfterShipping();
     }
 
     function updateAllCartContentInUI(){
@@ -905,10 +941,12 @@ window.addEventListener('DOMContentLoaded', function(){
 
     function calculateTotalAmountAfterShipping(){
         let totalAmountInCart = calculateTotalAmountOfCartProducts()
-        let ship_way = document.querySelectorAll('input[type="radio"]:checked.ship-way')
+        let ship_way = localStorage.getItem('shipping')
+        ship_way = JSON.parse(ship_way);
+        ship_way = ship_way.shipAmount;
         if(!ship_way)
             return;
-        let value = parseFloat(ship_way[0].value).toFixed(3);
+        let value = parseFloat(ship_way).toFixed(3);
         let temp = 1 * totalAmountInCart + 1 * value;
         return temp;
     }
@@ -931,6 +969,10 @@ window.addEventListener('DOMContentLoaded', function(){
         })
     }
 
+    function checkedShippingOnLoad(){
+
+    }
+
     function activeCheckedShippingBox(){
         let shipping_way = document.querySelectorAll('.shipping-way');
         shipping_way.forEach((item)=>{
@@ -941,6 +983,14 @@ window.addEventListener('DOMContentLoaded', function(){
         if(!active)
             return;
         active.classList.add('active');
+
+        let temp = document.querySelectorAll('.shipping-way input[type="radio"]:checked')
+        let ship = {
+            shipType: temp[0].id,
+            shipAmount: temp[0].value,
+        };
+        ship = JSON.stringify(ship)
+        localStorage.setItem('shipping', ship)
     }
 
     function injectTotalAfterShippingOnLoad(){
@@ -954,5 +1004,159 @@ window.addEventListener('DOMContentLoaded', function(){
             total_after_shipping[i].innerText = `$${temp}`
         }
         activeCheckedShippingBox();
+    }
+
+    function activePaymentMethodOnLoad(){
+        let payWay = document.querySelectorAll('.pay-way')
+        for(let i = 0; i < payWay.length; i++){
+            payWay[i].classList.remove('active');
+        }
+        let active = document.querySelectorAll('.pay-way:has(input[type="radio"]:checked)')
+        active = active[0];
+        if(!active)
+            return;
+        active.classList.add('active')
+
+        let temp = document.querySelectorAll('.pay-way input[type="radio"]:checked')
+        let pay = {
+            payMethod: temp[0].value
+        };
+        pay = JSON.stringify(pay)
+        localStorage.setItem('payment', pay)
+    }
+
+    function activeCheckedPaymentMethod(){
+        let payWay = document.querySelectorAll('.pay-way input[type="radio"]')
+        for(let i = 0; i < payWay.length; i++){
+            payWay[i].addEventListener('change', function(){
+                activePaymentMethodOnLoad();
+            })
+        }
+    }
+
+    function fillOrderSummery(){
+        let all_products_order = document.getElementById('all-products-order')
+        if(!all_products_order)
+            return;
+        let productInCart = getCartItemsJSON();
+        if(!productInCart)
+            return;
+        let products = [];
+        productInCart.forEach((item)=>{
+            let product = JSON.parse(item.product)
+            let count = JSON.parse(item.count);
+            products.push(`
+                <div id="${product.id}-product-card-in-cart" class="product-card-in-cart pt-1 pb-1">
+                    <div class="row mb-3">
+                        <div class="col-3 full-height">
+                            <div class="product-img d-flex justify-content-center align-items-center">
+                                <a href="product.html">
+                                    <img src="${product.images[0].url}" alt="product">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-7 full-height">
+                            <div class="middlie-sec-in-card d-flex flex-column justify-content-center align-items-start gap-3">
+                                <h2 class="product-title force">${product.name}Tray Table</h2>
+                                <span class="product-color">Color: ${product.images[0].color}</span>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button id="${product.id}" onclick="decreamentProduct('${product.id}')" type="button" class="decrease-one-product btn btn-primary">-</button>
+                                    <div id="${product.id}_product-count" type="button" class="btn btn-primary">${count}</div>
+                                    <button id="${product.id}" onclick="increamentProduct('${product.id}')" type="button" class="increase-one-product btn btn-primary">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 full-height">
+                            <div class="last-sec-in-card d-flex flex-column justify-content-center align-items-center gap-3">
+                                <h2 class="product-price">$${(product.discount > 0 ? (product.price - (product.price * product.discount)) : product.price) * count}</h2>
+                                <button type="button" class="btn-close d-lg-none" onclick="removeProductFromCartUI('${product.id}')" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `);
+        })
+        all_products_order.innerHTML = products.join('');
+
+        let ship_type = document.getElementById('ship-type');
+        let amountOrder = document.querySelectorAll('.amount-order');
+        if(!amountOrder)
+            return;
+        let shipping = localStorage.getItem('shipping');
+        shipping = JSON.parse(shipping);
+        ship_type.innerText = shipping.shipType
+        for(let i = 0; i < amountOrder.length; i++){
+            let productTotalAmount = parseFloat(calculateTotalAmountOfCartProducts());
+            let shippingAmount = parseFloat(shipping.shipAmount).toFixed(3);
+            let totalAmountAfterShipping = productTotalAmount * 1 + shippingAmount * 1;
+            amountOrder[i].innerText = `$${totalAmountAfterShipping}`
+        }
+    }
+
+    function placeOrder(){
+        let place_order = document.querySelectorAll('.btn.place-order');
+        place_order[0].addEventListener('click', function(){
+            let flag = true;
+            let inputs = document.querySelectorAll('form.checkout-details input:required')
+            for(let i = 0; i < inputs.length; i++){
+                if(inputs[i].value.trim().length === 0){
+                    // console.log(inputs[i].value.trim())
+                    flag = false;
+                }
+            }
+            console.log('#1')
+            if(flag){
+                console.log('#2')
+                window.open(`cart-order-complete.html`, '_self')
+            }
+        })
+    }
+
+    function fillCongratulationsCard(){
+        let prd_imgs = document.getElementById('prd-imgs')
+        if(!prd_imgs)
+            return;
+        let products = getCartItemsJSON();
+        if(!products)
+            return;
+        let resultProducts = [];
+        products.forEach((item)=>{
+            let product = JSON.parse(item.product)
+            let count = JSON.parse(item.count);
+            resultProducts.push(`
+                <div class="img position-relative">
+                    <img src="${product.images[0].url}" alt="product">
+                    <div class="d-flex justify-content-center align-items-center position-absolute">
+                        ${count}
+                    </div>
+                </div>
+            `);
+        })
+        prd_imgs.innerHTML = resultProducts.join('');
+        localStorage.removeItem('cart');
+        localStorage.removeItem('payment');
+        localStorage.removeItem('shipping');
+    }
+
+    function injectDateAndTotalAmountInCongratulationPage(){
+        let payMethod = localStorage.getItem('payment')
+        if(!payMethod)
+            payMethod = {payMethod: 'Unknown:('};
+        else
+            payMethod = JSON.parse(payMethod);
+        let pay_method = document.querySelectorAll('.pay-method')
+        for(let i = 0; i < pay_method.length; i++){
+            pay_method[i].innerHTML = `${payMethod.payMethod}`;
+        }
+
+        let date_of_order = document.querySelectorAll('.date-of-order')
+        for(let i = 0; i < date_of_order.length; i++){
+            date_of_order[i].innerHTML = `${new Date().toDateString()}`;
+        }
+
+        let totalAmount = document.querySelectorAll('.paid-total')
+        for(let i = 0; i < totalAmount.length; i++){
+            totalAmount[i].innerHTML = `$${calculateTotalAmountAfterShipping()}`;
+        }
     }
 })
